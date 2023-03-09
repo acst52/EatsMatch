@@ -4,30 +4,32 @@
 
 *PULL BEFORE YOU START WORKING!! Added a whole function? Taking a break? Time to push your work!*
 
-To facilitate pulling and pushing from the develop branch, clone the repo and checkout the develop branch as the current working branch --> git clone -b develop <repo-url>
+#### To facilitate pulling and pushing from the develop branch, clone the repo and checkout the develop branch as the current working branch --> [git clone -b develop <repo-url>]
 
-Pull changes from the develop branch before pushing --> git pull origin develop
+#### Pull changes from the develop branch before pushing --> [git pull origin develop]*
 
-Push changes to your feature branch off of develop --> git checkout -b feature/my-feature develop
+**note*: if you get the error message "your local changes will be overwritten by merge: file.name; please commit your changes or stash them before you merge", [git checkout -b feature/my-feature develop] your changes to your feature branch or [git stash] them, then you can do a [git pull origin develop] to get the latest working code.
 
-Make changes on your feature branch, commit them locally:
+#### Push changes to your feature branch off of develop --> git checkout -b feature/my-feature develop
 
-- git status to make sure you're on your feature branch
-- git add .
-- git commit -m "Added/worked on new feature"
-- git push -u origin feature/my-feature
+#### Make changes on your feature branch, commit them locally
 
-Once your feature is ready for develop, create a merge (pull) request! This way, the develop branch will always contain the latest changes that have been approved by 2 teammates and merged from feature branches. You can do this in the terminal using [git merge develop] or directly on GitHub
+- [git status] to make sure you're on your feature branch
+- [git add .]
+- [git commit -m "Added/worked on new feature"]
+- [git push -u origin feature/my-feature]
+
+Once your feature is ready for develop, create a merge (pull) request! This way, the develop branch will always contain the latest changes that have been approved by 2 teammates and merged from feature branches.
 
 **********
 
 ## STEPS TO CREATE & SEED DB, THEN START SERVER
 
 - create env file with your db name, user and pw variables
-- install dependencies; npm i
-- create the db schema: npm run schema
-- seed the dev db w test data: npm run seed
-- start the server: npm start
+- install dependencies; in terminal: [npm i]
+- create the db schema: [npm run schema]
+- seed the dev db w test data: [npm run seed]
+- start the server: [npm start]
 
 **********
 
