@@ -25,10 +25,13 @@ Tag.belongsToMany(Dish, { through: 'dish_tags', foreignKey: 'tagId' });
 Resto.hasMany(Promo, { foreignKey: 'restoId' });
 Promo.belongsTo(Resto, { foreignKey: 'restoId' });
 
+module.exports = { Dish, Promo, Resto, Tag, User };
 
 
 
-// ***** HELP *****
+// ***** HELP ***** 
+    // Do I need to define an OrderDishes?! Feels like there's a missing association..
+
 // Order belongs to lots of stuff...
 Order.belongsTo(User);
 Order.belongsTo(Restaurant);
