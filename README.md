@@ -4,26 +4,22 @@
 
 *PULL BEFORE YOU START WORKING!! Added a whole function? Taking a break? Time to push your work!*
 
-### to facilitate pulling and pushing from the develop branch, clone the repo and checkout the develop branch as the current working branch
-
+#### to facilitate pulling and pushing from the develop branch, clone the repo and checkout the develop branch as the current working branch
 git clone -b develop <repo-url>
 
-### Pull changes from the develop branch before pushing
-
+#### Pull changes from the develop branch before pushing
 git pull origin develop
 
-### Push changes to your feature branch off of develop
-
+#### Push changes to your feature branch off of develop
 git checkout -b feature/my-feature develop
 
-### Make changes on your feature branch, commit them locally
-
+#### Make changes on your feature branch, commit them locally
 git status to make sure you're on your feature branch
 git add .
 git commit -m "Added/worked on new feature"
 git push -u origin feature/my-feature
 
-### Once your feature is ready for develop, create a merge (pull) request! This way, the develop branch will always contain the latest changes that have been approved by 2 teammates and merged from feature branches. You can do this in the terminal using [git merge develop] or directly on GitHub
+#### Once your feature is ready for develop, create a merge (pull) request! This way, the develop branch will always contain the latest changes that have been approved by 2 teammates and merged from feature branches. You can do this in the terminal using [git merge develop] or directly on GitHub
 
 **********
 
@@ -53,4 +49,4 @@ git push -u origin feature/my-feature
 
 **********
 
-**let me know if you need git revert instructions or want a second pair of eyes to deal with conflicts**
+**let the team know if you need git revert instructions or want a second pair of eyes to deal with conflicts**
