@@ -8,9 +8,9 @@
 
 #### Pull changes from the develop branch before pushing --> [git pull origin develop]*
 
-**note*: if you get the error message "your local changes will be overwritten by merge: file.name; please commit your changes or stash them before you merge", [git checkout -b feature/my-feature develop] your changes to your feature branch or [git stash] them, then you can do a [git pull origin develop] to get the latest working code.
+**note*: if you get the error message "your local changes will be overwritten by merge: file.name; please commit your changes or stash them before you merge", [git checkout -b feature/my-feature develop] your changes to your feature branch or [git stash; git pull origin develop; git stash apply] them, then you can do a [git pull origin develop] to get the latest working code.
 
-#### Push changes to your feature branch off of develop --> git checkout -b feature/my-feature develop
+#### Push changes to your feature branch off of develop --> [git checkout -b feature/my-feature develop]
 
 #### Make changes on your feature branch, commit them locally
 
