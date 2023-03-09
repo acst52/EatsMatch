@@ -7,6 +7,6 @@ router.use('/users', userRoutes);
 
 router.use('/orders', orderRoutes)
 
-router.use('/stripe', stripeRoute);
+router.use('/payment', paymentRoutes);
 
 module.exports = router;
