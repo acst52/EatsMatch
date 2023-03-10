@@ -1,5 +1,8 @@
 // import models
+const Cart = require('./Cart');
+const DeliveryService = require('./DeliveryService');
 const Dish = require('./Dish');
+const Order = require('./Order')
 const Promo = require('./Promo');
 const Resto = require('./Resto');
 const Tag = require('./Tag');
@@ -25,21 +28,25 @@ Tag.belongsToMany(Dish, { through: 'dish_tags', foreignKey: 'tagId' });
 Resto.hasMany(Promo, { foreignKey: 'restoId' });
 Promo.belongsTo(Resto, { foreignKey: 'restoId' });
 
-module.exports = { Dish, Promo, Resto, Tag, User };
+// A Cart has many Dishes & vice versa, through cart_items
+Cart.belongsToMany(Dish, { through: 'cart_items' });
+Dish.belongsToMany(Cart, { through: 'cart_items' });
+
+// A User can have many Carts, but a cart belongs to 1 user
+User.hasMany(Cart, { foreignKey: 'userId' });
+Cart.belongsTo(User, { foreignKey: 'userId' });
+
+// An Order is assoc with a DeliveryService, but DeliveryService has many Orders
+Order.belongsTo(DeliveryService, { foreignKey: 'deliveryServiceId' });
+DeliveryService.hasMany(Order, { foreignKey: 'deliveryServiceId' });
+
+// An Order can have many carts, but a cart belongs to an Order
+Order.hasMany(Cart, { foreignKey: 'orderId' });
+Cart.belongsTo(Order, { foreignKey: 'orderId' });
+
+// An Order has many dishes & vice versa, through order_items
+Order.belongsToMany(Dish, { through: 'order_items' });
+Dish.belongsToMany(Order, { through: 'order_items' });
 
 
-
-// ***** HELP ***** 
-    // Do I need to define an OrderDishes?! Feels like there's a missing association..
-
-// Order belongs to lots of stuff...
-Order.belongsTo(User);
-Order.belongsTo(Restaurant);
-
-const OrderDish = sequelize.define('order_dishes', {});
-
-Order.belongsToMany(Dish, { through: OrderDish });
-Dish.belongsToMany(Order, { through: OrderDish });
-
-
-module.exports = { Dish, Promo, Resto, Tag, User, OrderDish };
+module.exports = { Cart, DeliveryService, Dish, Order, Promo, Resto, Tag, User };
