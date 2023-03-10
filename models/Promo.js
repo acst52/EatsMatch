@@ -1,26 +1,18 @@
 const { Sequelize, Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class Resto extends Model {};
+class Promo extends Model {};
 
-Resto.init({
+Promo.init({
     id: {
         type: DataTypes.INTEGER,
         primaryKey: true,
         autoIncrement: true
       },
-      resto_name: {
-        type: DataTypes.STRING,
-        allowNull: false
-      },
-      resto_img: {
-        type: DataTypes.STRING,
-        allowNull: false // maybe false=stretch
-      },
-      resto_promo: {
+      promo_name: {
         type: DataTypes.STRING,
         allowNull: false
       }
 });
 
-module.exports = Resto;
+module.exports = Promo;
