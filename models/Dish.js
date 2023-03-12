@@ -9,19 +9,23 @@ Dish.init({
         primaryKey: true,
         autoIncrement: true
       },
-      dish_name: {
+    dish_name: {
         type: DataTypes.STRING,
         allowNull: false
       },
-      dish_price: {
+    dish_description: {
+        type: DataTypes.STRING,
+        allowNull: false
+      },
+    dish_price: {
         type: DataTypes.FLOAT,
         allowNull: false
       },
-      dish_img: {
+    dish_img: {
         type: DataTypes.STRING,
         allowNull: false
       },
-      dish_promo: {
+    dish_promo: {
         type: DataTypes.STRING,
         allowNull: false
       }
