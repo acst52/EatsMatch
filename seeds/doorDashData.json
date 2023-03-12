@@ -1,0 +1,119 @@
+{
+    "restaurants": [
+      {
+        "name": "Burger's Priest",
+        "menu": [
+          {
+            "name": "The Priest",
+            "price": 12.99,
+            "description": "Double cheeseburger with secret sauce"
+          },
+          {
+            "name": "Poutine",
+            "price": 7.99,
+            "description": "Classic poutine with cheese curds and gravy"
+          }
+        ]
+      },
+      {
+        "name": "Pizza Pizza",
+        "menu": [
+          {
+            "name": "Pepperoni Pizza",
+            "price": 15.99,
+            "description": "Classic pepperoni pizza"
+          },
+          {
+            "name": "Caesar Salad",
+            "price": 9.99,
+            "description": "Romaine lettuce with croutons and caesar dressing"
+          }
+        ]
+      },
+      {
+        "name": "Swiss Chalet",
+        "menu": [
+          {
+            "name": "Quarter Chicken Dinner",
+            "price": 15.99,
+            "description": "Quarter chicken with fries and roll"
+          },
+          {
+            "name": "Caesar Salad",
+            "price": 9.99,
+            "description": "Romaine lettuce with croutons and caesar dressing"
+          }
+        ]
+      },
+      {
+        "name": "Boston Pizza",
+        "menu": [
+          {
+            "name": "The Meateor",
+            "price": 18.99,
+            "description": "Pepperoni, bacon, seasoned ground beef, and Italian sausage"
+          },
+          {
+            "name": "Garlic Bread",
+            "price": 6.99,
+            "description": "Oven-baked bread topped with garlic butter and Parmesan cheese"
+          }
+        ]
+      },
+      {
+        "name": "KFC",
+        "menu": [
+          {
+            "name": "3 Piece Meal",
+            "price": 12.99,
+            "description": "3 pieces of chicken with fries and gravy"
+          },
+          {
+            "name": "Famous Bowl",
+            "price": 7.99,
+            "description": "Mashed potatoes, corn, gravy, and popcorn chicken"
+          }
+        ]
+      },
+      {
+        "name": "McDonald's",
+        "menu": [
+          {
+            "name": "Big Mac",
+            "price": 6.99,
+            "description": "Two all beef patties, special sauce, lettuce, cheese, pickles, onions on a sesame seed bun"
+          },
+          {
+            "name": "McChicken",
+            "price": 5.99,
+            "description": "Breaded chicken patty, lettuce, and mayo on a bun"
+          }
+        ]
+      },
+      {
+        "name": "Tim Hortons",
+        "menu": [
+          {
+            "name": "Double-Double",
+            "price": 2.49,
+            "description": "Coffee with two cream and two sugar"
+          },
+          {
+            "name": "Apple Fritter",
+            "price": 1.99,
+            "description": "A delicious apple fritter pastry"
+          }
+        ]
+      },
+      {
+        "name": "Subway",
+        "menu": [
+          {
+            "name": "Footlong Meatball Marinara",
+            "price": 9.99,
+            "description": "Meatballs in marinara sauce with melted cheese on a footlong sub"
+          }
+        ]
+    }
+]
+}
