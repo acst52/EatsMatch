@@ -114,6 +114,85 @@
             "description": "Meatballs in marinara sauce with melted cheese on a footlong sub"
           }
         ]
-    }
-]
-}
+    },
+
+
+{
+  "name": "Chipotle",
+  "menu": [
+  {
+  "name": "Burrito Bowl",
+  "price": 10.99,
+  "description": "Rice, beans, choice of protein, salsa, and toppings in a bowl"
+  },
+
+  {
+  "name": "Chips and Guacamole",
+  "price": 4.99,
+  "description": "Crispy tortilla chips served with fresh guacamole"
+  }
+  ]
+  },
+  
+  {
+  "name": "Sushi Shop",
+  "menu": [
+  {
+  "name": "Dragon Roll",
+  "price": 14.99,
+  "description": "Shrimp tempura, avocado, cucumber, and BBQ eel on top"
+  },
+  {
+  "name": "Salmon Nigiri",
+  "price": 2.99,
+  "description": "Fresh salmon on top of sushi rice"
+  }
+  ]
+  },
+  {
+  "name": "Thai Express",
+  "menu": [
+  {
+  "name": "Pad Thai",
+  "price": 12.99,
+  "description": "Stir-fried rice noodles with chicken, shrimp, bean sprouts, and peanuts"
+  },
+  {
+  "name": "Spring Rolls",
+  "price": 5.99,
+  "description": "Crispy vegetarian spring rolls served with sweet chili sauce"
+  }
+  ]
+  },
+  {
+  "name": "Harvey's",
+  "menu": [
+  {
+  "name": "Original Burger",
+  "price": 7.99,
+  "description": "Beef patty with lettuce, tomato, and mayo on a sesame seed bun"
+  },
+  {
+  "name": "Onion Rings",
+  "price": 3.99,
+  "description": "Crispy battered onion rings"
+  }
+  ]
+  },
+  {
+  "name": "Taco Bell",
+  "menu": [
+  {
+  "name": "Crunchwrap Supreme",
+  "price": 8.99,
+  "description": "Crunchy taco, nacho cheese sauce, lettuce, tomato, and sour cream wrapped in a soft tortilla"
+  },
+  {
+  "name": "Cinnamon Twists",
+  "price": 2.99,
+  "description": "Sweet, crispy cinnamon-flavored twists"
+  }
+  ]
+  }
+  ]
+  }
