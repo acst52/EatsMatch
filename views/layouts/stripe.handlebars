@@ -79,3 +79,52 @@
 </body>
 
 </html>
+
+{{!-- possible front-end js for stripe.handlebar --}}
+<script>
+ 
+
+    var errorModel = document.getElementById('errorModel')
+    var sucessModel = document.getElementById('sucessModel')
+    var span = document.getElementsByClassName('close')[0]
+
+    // when click on the 'x' on the model, close the model
+    span.onclick = () => {
+        errorModel.style.display = 'none'
+        sucessModel.style.display = 'none'
+    }
+
+    // when click on the anywhere outside model, close the model
+    window.onclick = function(event) {
+        if (event.target == errorModel) {
+            errorModel.style.display = 'none';
+        } 
+        
+        if(event.target == sucessModel){
+            sucessModel.style.display = 'none';
+        }
+    }
+
+    function checkInputs() {
+        const cardNumberInput = document.getElementById("card-number");
+        const securityCodeInput = document.getElementById("security-code");
+        const expirationDateInput = document.getElementById("expiration-date");
+        
+        if (!cardNumberInput.checkValidity()) {
+            errorModel.style.display = 'solid';
+            return;
+        }
+        
+        if (!securityCodeInput.checkValidity()) {
+            errorModel.style.display = 'solid';
+            return;
+        }
+        
+        if (!expirationDateInput.checkValidity()) {
+            errorModel.style.display = 'solid';
+            return;
+        }
+        
+        sucessModel.style.display = 'solid'
+    }
+</script>
