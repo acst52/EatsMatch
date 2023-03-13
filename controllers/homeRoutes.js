@@ -132,7 +132,6 @@ router.get('/cart', withAuth, async (req, res) => {
 
 
 
-
 // POST /checkout route, using Stripe......
 
 const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
@@ -174,17 +173,14 @@ router.get('/checkout/success', async (req, res) => {
     res.render('checkout-success', {
       title: 'Checkout Success'
     });
-  });
+});
   
-  router.get('/checkout/cancel', async (req, res) => {
+router.get('/checkout/cancel', async (req, res) => {
     // Render the checkout cancel page
     res.render('checkout-cancel', {
       title: 'Checkout Cancel'
     });
-  });
-  
-
+});
 
 
 module.exports = router;
-
