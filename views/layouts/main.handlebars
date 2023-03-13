@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EatsMatch</title>
+  <link rel="stylesheet" type="text/css" href="./public/css/jass.css">
+  <!-- if there are more css file -->
+  <!-- <link rel="stylesheet" type="text/css" href="./public/css/style.css">  -->
+
+  <!-- the style is here just for test -->
+
+    <style>
+        .test {
+            border-color: black;
+            border-style: solid;
+        }
+    </style>
+
+</head>
+
+<body>
+
+
+    <header>
+        <div class="logo">LOGO</div> 
+        <!--logo goes here-->
+        <div class="header">EatsMatch</div> 
+        <!--app name goes here-->
+    </header>
+    <nav>
+        <a href="/">Home</a>
+        <!-- {{#if loggedIn}} -->
+        <button id="logout" class="">Logout</button>
+        <!-- {{else}} -->
+        <a href="/login">Login</a>
+        <!-- {{/if}} -->
+        <button id="cart" class="">Cart</button>
+
+    </nav>
+    <main>
+        
+        <div class="container">
+            {{{body}}}
+
+        </div>
+
+        {{!-- cart model, when cart button is clicked this model will be shown, data are rendered from local storage (front-end js needed). when the checkout btn is clicked, the cart.hb will render --}}
+        <div id="cart-modal" class="modal" style="display: none;">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h4>Cart</h4>
+                <div class="item">
+                    <span class="item-name">{{!--data from local storage--}}</span>
+                    <span class="item-price">{{!--data from local storage--}}</span>
+                </div>
+                <button class="checkout-button">Checkout</button>
+            </div>
+        </div>
+
+        
+        
+        {{#if loggedIn}}
+        <script src="./public/js/logout.js"></script>
+        <!-- need to make a logout.js later -->
+        {{/if}}
+
+    </main>
+</body>
+
+</html>
