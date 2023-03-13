@@ -1,0 +1,8 @@
+<section class="container">
+    <h3 class="dish-name">{{dish.name}}</h3>
+    <section class="flex-row justify-center">
+        {{#each dish.name as |name|}}
+        {{> dishDetails}}
+        {{/each}}
+    </section>
+</section>
