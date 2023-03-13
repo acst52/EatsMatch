@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checkout</title>
+  <link rel="stylesheet" type="text/css" href="./public/css/jass.css">
+  <!-- if there are more css file -->
+  <!-- <link rel="stylesheet" type="text/css" href="./public/css/style.css">  -->
+
+  <!-- the style is here just for test -->
+
+    {{!-- <style>
+        .test {
+            border-color: black;
+            border-style: solid;
+        }
+    </style> --}}
+
+</head>
+
+<body>
+
+
+    <header>
+        <div class="logo">LOGO</div> 
+        <!--logo goes here-->
+        <div class="header">EatsMatch</div> 
+        <!--app name goes here-->
+    </header>
+    
+    <main>
+        
+        <div class="container">
+            <div class="card">
+                <form>
+                    <label for="card-number">Card Number</label>
+                    <input type="text" id="card-number" name="card-number" pattern="\d{16}" required>
+                    <br>
+                    
+                    <label for="security-code">CVV/CVC</label>
+                    <input type="text" id="security-code" name="security-code" pattern="\d{3}" required>
+                    <br>
+                    
+                    <label for="expiration-date">Expiry</label>
+                    <input type="date" id="expiration-date" name="expiration-date" required>
+                    <br>
+                    
+                    {{!-- the id for this 'pay' button is payment, change if needed --}}
+                    {{!-- 'checkInputs' is a front-end js function to check if the form is filled properly --}}
+                    <button type="button" id="payment" onclick="checkInputs()">Pay</button>
+                </form>
+            </div>
+            
+        </div>
+
+        {{!-- id for the error message model is 'errorModel' --}}
+        <div id="errorModel" class="modal" style="display: none;">
+            <!-- possible error information -->
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <p>Please enter valid card details</p>
+            </div>
+
+        </div>
+
+        {{!-- id for the payment sucess message model is 'sucessModel' --}}
+        <div id="sucessModel" class="modal" style="display: none;">
+            <!-- possible error information -->
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <p>Sucess! Your order has been placed.</p>
+            </div>
+
+        </div>
+
+    </main>
+</body>
+
+</html>
