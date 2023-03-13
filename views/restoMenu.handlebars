@@ -1,14 +1,4 @@
-{{!-- An example for a restaurant or menu item card partial adapted from class notes --}}
-
-<section class="card">
-  <!-- The contents of this card link to the restaurant page using the resto ID -->
-  <a href="/resto/{{id}}">
-    <!-- The card contains the resto name as the card header -->
-    <header>{{name}}</header>
-    <!-- The card contains the first image of the resto -->
-    <img src="/images/{{foodImg.[0].filename}}" alt="{{foodImg.[0].description}}">
-  </a>
-</section>
+{{!-- this handlebar is used when user clicked on the a tag on resto list page, when a resto is clicked this page well be rendered and show all the dishes the resto has --}}
 
 {{> header}}
 <h1>{{ resto.name }}</h1>

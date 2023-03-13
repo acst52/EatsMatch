@@ -1,17 +1,5 @@
-{{!-- An example for a restaurant or menu item card partial adapted from class notes --}}
+{{!-- similar layout as the restoMenu.hb --}}
 
-<section class="card">
-  <!-- The contents of this card link to the restaurant page using the resto ID -->
-  <a href="/resto/{{id}}">
-    <!-- The card contains the resto name as the card header -->
-    <header>{{name}}</header>
-    <!-- The card contains the first image of the resto -->
-    <img src="/images/{{foodImg.[0].filename}}" alt="{{foodImg.[0].description}}">
-  </a>
-</section>
-
-{{> header}}
-<h1>{{ resto.name }}</h1>
 {{#if dishes}}
   <div class="card-deck">
     {{#each dishes}}
@@ -30,5 +18,5 @@
     {{/each}}
   </div>
 {{else}}
-  <p>No dishes found for this restaurant.</p>
+  <p>No dishes found for this search.</p>
 {{/if}}
