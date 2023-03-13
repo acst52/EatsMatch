@@ -1,0 +1,110 @@
+{
+    "restaurants": [
+        {
+            "name": "The Keg Steakhouse + Bar",
+            "image": "https://images.unsplash.com/photo-1551963831-b3b1ca40c98e",
+            "items": [
+                {
+                    "name": "Filet Mignon",
+                    "price": 40.99,
+                    "discount": 0.1
+                },
+                {
+                    "name": "Prime Rib",
+                    "price": 34.99,
+                    "discount": 0.15
+                },
+                {
+                    "name": "New York Striploin",
+                    "price": 38.99,
+                    "discount": 0.1
+                }
+            ]
+        },
+        {
+            "name": "The Burger's Priest",
+            "image": "https://images.unsplash.com/photo-1587502536145-cf9ae9cd1d64",
+            "items": [
+                {
+                    "name": "The Priest",
+                    "price": 11.49,
+                    "discount": 0.2
+                },
+                {
+                    "name": "The Pope",
+                    "price": 13.99,
+                    "discount": 0.15
+                },
+                {
+                    "name": "The Vatican City",
+                    "price": 15.49,
+                    "discount": 0.1
+                }
+            ]
+        },
+        {
+            "name": "Chipotle Mexican Grill",
+            "image": "https://images.unsplash.com/photo-1543353079-6986c36dfef1",
+            "items": [
+                {
+                    "name": "Burrito Bowl",
+                    "price": 9.99,
+                    "discount": 0.1
+                },
+                {
+                    "name": "Taco Salad",
+                    "price": 8.49,
+                    "discount": 0.2
+                },
+                {
+                    "name": "Chicken Quesadilla",
+                    "price": 11.99,
+                    "discount": 0.1
+                }
+            ]
+        },
+        {
+            "name": "Swiss Chalet",
+            "image": "https://images.unsplash.com/photo-1621346231215-2669831b4e4a",
+            "items": [
+                {
+                    "name": "Quarter Chicken Dinner",
+                    "price": 14.99,
+                    "discount": 0.1
+                },
+                {
+                    "name": "Half Chicken Dinner",
+                    "price": 18.99,
+                    "discount": 0.15
+                },
+                {
+                    "name": "BBQ Ribs",
+                    "price": 21.99,
+                    "discount": 0.1
+                }
+            ]
+        },
+        {
+            "name": "Boston Pizza",
+            "image": "https://images.unsplash.com/photo-1581695313160-0a2b33cc9c8d",
+            "items": [
+                {
+                    "name": "Meatball Pizza",
+                    "price": 18.99,
+                    "discount": 0.1
+                },
+                {
+                    "name": "BBQ Chicken Pizza",
+                    "price": 17.49,
+                    "discount": 0.15
+                },
+                {
+                    "name": "Vegetarian Pizza",
+                    "price": 15.99,
+                    "discount": 0.1
+                }
+            ]
+        }
+    ]
+}
+        
