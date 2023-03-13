@@ -1,0 +1,24 @@
+{{!-- this handlebar is used when user clicked on the a tag on resto list page, when a resto is clicked this page well be rendered and show all the dishes the resto has --}}
+
+{{> header}}
+<h1>{{ resto.name }}</h1>
+{{#if dishes}}
+  <div class="card-deck">
+    {{#each dishes}}
+      <div class="card">
+        <img src="{{ imageUrl }}" class="card-img-top" alt="{{ name }}">
+        <div class="card-body">
+          <h5 class="card-title">{{ name }}</h5>
+          <p class="card-text">{{ description }}</p>
+          <p class="card-text font-weight-bold">${{ price }}</p>
+          <form action="/cart/add" method="post">
+            <input type="hidden" name="dish_id" value="{{ id }}">
+            <button type="submit" class="btn btn-primary">Add to Cart</button>
+          </form>
+        </div>
+      </div>
+    {{/each}}
+  </div>
+{{else}}
+  <p>No dishes found for this restaurant.</p>
+{{/if}}
