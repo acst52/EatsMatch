@@ -3,7 +3,7 @@ const { User, Dish, Resto, DeliveryService } = require('../models');
 const withAuth = require('../utils/auth');
 
 // Routes to add to homepage:
-    // 1. GET --> render homepage template using handlebars, incl search form for users to enter food item or resto name queries
+// 1. GET --> render homepage template using handlebars, incl search form for users to enter food item or resto name queries
 
 router.get('/', (req, res) => {
     res.render('home', { title: 'EatsMatch' });
@@ -83,11 +83,11 @@ router.get('/restaurant/:id', async (req, res) => {
 })
 
 
-    // 2. POST --> handle form submission from homepage and redirect user to search results page with query parameters. Validate user input & sanitize user data before using it to query db or retrieve data from JSON files. ** store user's search history in session or cookies ffr?
+// 2. POST --> handle form submission from homepage and redirect user to search results page with query parameters. Validate user input & sanitize user data before using it to query db or retrieve data from JSON files. ** store user's search history in session or cookies ffr?
 
-    // 4. GET /menu/:id --> route to handle menu pg, which displays details of food item / resto menu based on id param in URL. Retrieve food item details from db or JSON files and render the menu template using handlebars. template should display food item name, description, image, price. include button for the user to add the item to their cart.
+// 4. GET /menu/:id --> route to handle menu pg, which displays details of food item / resto menu based on id param in URL. Retrieve food item details from db or JSON files and render the menu template using handlebars. template should display food item name, description, image, price. include button for the user to add the item to their cart.
 
-    // 5. POST /cart/:id --> this route should handle form subission from menu pg & add selected itrm to user's cart. in this route, use session or cookies to store the user's cart data and redirect user to their cart pg. make sure user auth to be able to add to cart. if user not, redir to login/signup pg
+// 5. POST /cart/:id --> this route should handle form subission from menu pg & add selected itrm to user's cart. in this route, use session or cookies to store the user's cart data and redirect user to their cart pg. make sure user auth to be able to add to cart. if user not, redir to login/signup pg
 
 router.post('/cart/add', withAuth, async (req, res) => {
     const { dish_id } = req.body;
@@ -106,7 +106,7 @@ router.post('/cart/add', withAuth, async (req, res) => {
     }
 });
 
-    // 6. GET /cart --> this route should handle the user's cart pg which displays the items in their cart and allows them to edit or remove items. retrieve cart data from session or cookies and render the cart template using handlebars. template should display food item name, resto name, quantity, total price for ea item. incl button for checkout. ..... automatically select lowest price delivery service
+// 6. GET /cart --> this route should handle the user's cart pg which displays the items in their cart and allows them to edit or remove items. retrieve cart data from session or cookies and render the cart template using handlebars. template should display food item name, resto name, quantity, total price for ea item. incl button for checkout. ..... automatically select lowest price delivery service
 
 router.get('/cart', withAuth, async (req, res) => {
     try {
@@ -137,49 +137,53 @@ router.get('/cart', withAuth, async (req, res) => {
 const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 
 router.post('/checkout', async (req, res) => {
-  const { cartItems, totalPrice } = req.body;
+    const { cartItems, totalPrice } = req.body;
 
-  try {
-    // Create a new Stripe Checkout Session using checkout.sessions.create method
-    const session = await stripe.checkout.sessions.create({
-      payment_method_types: ['card'],
-      line_items: cartItems.map(item => {
-        return {
-          price_data: {
-            currency: 'usd',
-            product_data: {
-              name: item.Dish.name
-            },
-            unit_amount: item.Dish.price * 100 // Convert to cents
-          },
-          quantity: item.quantity
-        };
-      }),
-      mode: 'payment',
-      success_url: `${req.protocol}://${req.get('host')}/checkout/success`,
-      cancel_url: `${req.protocol}://${req.get('host')}/checkout/cancel`
-    });
+    try {
+        // Create a new Stripe Checkout Session using checkout.sessions.create method
+        const session = await stripe.checkout.sessions.create({
+            payment_method_types: ['card'],
+            line_items: cartItems.map(item => {
+                return {
+                    price_data: {
+                        currency: 'usd',
+                        product_data: {
+                            name: item.Dish.name
+                        },
+                        unit_amount: item.Dish.price * 100 // Convert to cents
+                    },
+                    quantity: item.quantity
+                };
+            }),
+            mode: 'payment',
+            success_url: `${req.protocol}://${req.get('host')}/checkout/success`,
+            cancel_url: `${req.protocol}://${req.get('host')}/checkout/cancel`
+        });
 
-    // Redirect the user to the Stripe Checkout page
-    res.redirect(303, session.url);
-  } catch (error) {
-    console.log(error);
-    res.status(500).send('Server error');
-  }
+        // Redirect the user to the Stripe Checkout page
+        res.redirect(303, session.url);
+    } catch (error) {
+        console.log(error);
+        res.status(500).send('Server error');
+    }
 });
 
 router.get('/checkout/success', async (req, res) => {
     // Render the checkout success page
     res.render('checkout-success', {
-      title: 'Checkout Success'
+        title: 'Checkout Success'
     });
 });
-  
+
 router.get('/checkout/cancel', async (req, res) => {
     // Render the checkout cancel page
     res.render('checkout-cancel', {
-      title: 'Checkout Cancel'
+        title: 'Checkout Cancel'
     });
+});
+
+router.get('/login', async (req, res) => {
+    res.render('login');
 });
 
 

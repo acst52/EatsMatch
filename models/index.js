@@ -35,13 +35,7 @@ Dish.belongsToMany(Cart, { through: 'cart_items' });
 // A User can have many Carts, but a cart belongs to 1 user
 User.hasMany(Cart, { foreignKey: 'userId' });
 Cart.belongsTo(User, { foreignKey: 'userId' });
-// A User can have many Carts, but a cart belongs to 1 user
-User.hasMany(Cart, { foreignKey: 'userId' });
-Cart.belongsTo(User, { foreignKey: 'userId' });
 
-// An Order is assoc with a DeliveryService, but DeliveryService has many Orders
-Order.belongsTo(DeliveryService, { foreignKey: 'deliveryServiceId' });
-DeliveryService.hasMany(Order, { foreignKey: 'deliveryServiceId' });
 // An Order is assoc with a DeliveryService, but DeliveryService has many Orders
 Order.belongsTo(DeliveryService, { foreignKey: 'deliveryServiceId' });
 DeliveryService.hasMany(Order, { foreignKey: 'deliveryServiceId' });
@@ -49,18 +43,9 @@ DeliveryService.hasMany(Order, { foreignKey: 'deliveryServiceId' });
 // An Order can have many carts, but a cart belongs to an Order
 Order.hasMany(Cart, { foreignKey: 'orderId' });
 Cart.belongsTo(Order, { foreignKey: 'orderId' });
-// An Order can have many carts, but a cart belongs to an Order
-Order.hasMany(Cart, { foreignKey: 'orderId' });
-Cart.belongsTo(Order, { foreignKey: 'orderId' });
 
 // An Order has many dishes & vice versa, through order_items
 Order.belongsToMany(Dish, { through: 'order_items' });
 Dish.belongsToMany(Order, { through: 'order_items' });
-// An Order has many dishes & vice versa, through order_items
-Order.belongsToMany(Dish, { through: 'order_items' });
-Dish.belongsToMany(Order, { through: 'order_items' });
-
-
-module.exports = { Cart, DeliveryService, Dish, Order, Promo, Resto, Tag, User };
 
 module.exports = { Cart, DeliveryService, Dish, Order, Promo, Resto, Tag, User };

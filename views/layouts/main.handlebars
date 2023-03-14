@@ -2,14 +2,14 @@
 <html lang="en">
 
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>EatsMatch</title>
-  <link rel="stylesheet" type="text/css" href="./public/css/jass.css">
-  <!-- if there are more css file -->
-  <!-- <link rel="stylesheet" type="text/css" href="./public/css/style.css">  -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EatsMatch</title>
+    <link rel="stylesheet" type="text/css" href="./public/css/jass.css">
+    <!-- if there are more css file -->
+    <!-- <link rel="stylesheet" type="text/css" href="./public/css/style.css">  -->
 
-  <!-- the style is here just for test -->
+    <!-- the style is here just for test -->
 
     <style>
         .test {
@@ -24,9 +24,9 @@
 
 
     <header>
-        <div class="logo">LOGO</div> 
+        <div class="logo">LOGO</div>
         <!--logo goes here-->
-        <div class="header">EatsMatch</div> 
+        <div class="header">EatsMatch</div>
         <!--app name goes here-->
     </header>
     <nav>
@@ -37,19 +37,17 @@
         <!-- {{else}} -->
         <a href="/login">Login</a>
         <!-- {{/if}} -->
-        <button id="cart" class="">Cart</button>
+
+        <a href="/cart">
+            <button id="cart" class="">Cart</button>
+        </a>
 
     </nav>
     <main>
-        
+
         <div class="container">
             {{{body}}}
         </div>
-       
-        {{#if loggedIn}}
-        <script src="./public/js/logout.js"></script>
-        <!-- need to make a logout.js later -->
-        {{/if}}
 
     </main>
 </body>

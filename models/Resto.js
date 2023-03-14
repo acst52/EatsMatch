@@ -22,6 +22,12 @@ Resto.init({
     allowNull: false
   }
 },
-  { sequelize });
+  {
+    sequelize,
+    timestamps: false,
+    freezeTableName: true,
+    underscored: true,
+    modelName: 'Resto',
+  });
 
 module.exports = Resto;
