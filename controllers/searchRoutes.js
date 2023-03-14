@@ -1,6 +1,8 @@
 const router = require('express').Router();
 const { Dish, Resto } = require('../models');
 
+// TODO: CHANGE DISH SEARCH ROUTE TO TAG SEARCH ROUTE
+
 // Handle dish searches
 router.get('/search/dish', async (req, res) => {
     const { dish_name } = req.query;
