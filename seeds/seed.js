@@ -4,6 +4,9 @@ const doorDashData = require('./doorDashData.json');
 const uberEatsData = require('./uberEatsData.json');
 
 const seedRestaurants = async () => {
+  
+  await sequelize.sync({ force: true });
+
   await Resto.bulkCreate([
     {
       name: "Burger's Priest",
