@@ -1,0 +1,20 @@
+<div class="search-bar">
+    <form action="/search" method="get"> 
+        <!--action can be changed for routes-->
+
+        <label for="search-type">Search for: </label>
+        <select id="search-type" name="search-type">
+
+            <option value="typeDish">Dish</option> 
+            <!--value: typeDish, search for dishes-->
+            <option value="typeResto">Resturant</option> 
+            <!--value: typeResto, search for resturants-->
+        </select>
+        <label for="search-query"> </label>
+        <input type="text" id="search-query" name="search-input"> 
+        <!--'name' change if needed-->
+        <button type="submit">Search</button>
+    </form>
+</div>
+
+{{!-- need some front-end js for this submit button to fetch the path --}}
