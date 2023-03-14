@@ -1,4 +1,14 @@
 {
+  "name": "eatsmatch",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "start:dev": "nodemon server",
+    "seed": "node seeds/seed.js"
+  },
   "dependencies": {
     "bcrypt": "^5.1.0",
     "connect-session-sequelize": "^7.1.5",
@@ -10,5 +20,9 @@
     "handlebars": "^4.7.7",
     "mysql2": "^3.2.0",
     "sequelize": "^6.29.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7",
+    "eslint": "^7.13.0"
   }
 }
