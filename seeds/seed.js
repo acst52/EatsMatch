@@ -1,10 +1,10 @@
-const { Restaurant, Dish } = require('./models');
+const { Resto, Dish } = require('../models');
 
 const doorDashData = require('./doorDashData.json');
 const uberEatsData = require('./uberEatsData.json');
 
 const seedRestaurants = async () => {
-  await Restaurant.bulkCreate([
+  await Resto.bulkCreate([
     {
       name: "Burger's Priest",
       cuisine: 'Burgers',
