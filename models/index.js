@@ -41,7 +41,7 @@ Order.belongsTo(DeliveryService, { foreignKey: 'deliveryServiceId' });
 DeliveryService.hasMany(Order, { foreignKey: 'deliveryServiceId' });
 
 // TODO: add association between DeliveryService and Resto
-DeliveryService.hasMany(Res)
+// DeliveryService.hasMany(Res)
 
 // An Order can have many carts, but a cart belongs to an Order
 Order.hasMany(Cart, { foreignKey: 'orderId' });
