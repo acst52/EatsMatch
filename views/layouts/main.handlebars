@@ -30,7 +30,8 @@
         <!--app name goes here-->
     </header>
     <nav>
-        <a href="/">Home</a>
+        {{!-- class name left empty for css --}}
+        <a href="/" class="">Home</a>
         <!-- {{#if loggedIn}} -->
         <button id="logout" class="">Logout</button>
         <!-- {{else}} -->
@@ -43,24 +44,8 @@
         
         <div class="container">
             {{{body}}}
-
         </div>
-
-        {{!-- cart model, when cart button is clicked this model will be shown, data are rendered from local storage (front-end js needed). when the checkout btn is clicked, the cart.hb will render --}}
-        <div id="cart-modal" class="modal" style="display: none;">
-            <div class="modal-content">
-                <span class="close">&times;</span>
-                <h4>Cart</h4>
-                <div class="item">
-                    <span class="item-name">{{!--data from local storage--}}</span>
-                    <span class="item-price">{{!--data from local storage--}}</span>
-                </div>
-                <button class="checkout-button">Checkout</button>
-            </div>
-        </div>
-
-        
-        
+       
         {{#if loggedIn}}
         <script src="./public/js/logout.js"></script>
         <!-- need to make a logout.js later -->

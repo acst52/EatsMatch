@@ -1,3 +1,14 @@
-{{!-- maybe this could be a partial modal that hovers over the right side of page? --}}
+{{!-- Cart handlebar with its own path --}}
 
-{{!-- re: added a model in main.db, when cart btn is clicked the model will show, checkout btn should direct to stripe.hb to checkout --}}
+<div id="cart" class="container">
+    <div class="cart-content">
+        <h4>Cart</h4>
+        <div class="item">
+            <span class="item-name">{{!--data from session--}}</span>
+            <span class="item-price">{{!--data from session--}}</span>
+        </div>
+        <div class="totalPrice">{{!--total cost for order--}}</div>
+        {{!-- when checkout is clicked, render the stripe.hb --}}
+        <button class="checkout-button" onclick="/path to stripe">Checkout</button>
+    </div>
+</div>
