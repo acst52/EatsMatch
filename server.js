@@ -1,6 +1,7 @@
 // Set up Express.js server w session support and db synch using Sequelize ORM; middleware to handle JSON, URL-encoded date & static file serving
 
 // import necessary modules
+require('dotenv').config();
 const path = require('path');
 const express = require('express');
 const session = require('express-session');
@@ -43,9 +44,20 @@ app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
 
 // config server to use express.json(), express.urlencoded() & to serve static files from public dir
+  // so we can read all the JSON data that gets sent up to our server:
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+// specify that all client-side code is living in public dir:
 app.use(express.static(path.join(__dirname, 'public')));
+
+// Now let's set up Stripe; 
+  // the following is a function so we want to pass in our Stripe Key:
+const stripe = require('stripe')(process.env.STRIPE_PRIVATE_KEY);
+  // set up store items; new map that contains all store items as obj w key value pairs. ITEMS AS BELOW IN JSON FILE STORED IN SERVER. must store securely in server b/c you dont want user to send the price, they could hack and make it 0
+const storeItems = new Map([[
+  1, { priceInCents: 10000, name: 'ITEM1'}],
+  [2, { priceInCents: 20000, name: 'ITEM2'}],
+])
 
 // add routed mod to server middleware
 app.use(routes);
