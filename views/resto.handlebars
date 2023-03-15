@@ -1,0 +1,8 @@
+<section class="container">
+    <h3 class="resto-name">{{!--'resto name from front-end' --}}</h3>
+    <section class="flex-row justify-center">
+        {{#each resto.name as |name|}}
+        {{> restoDetails}}
+        {{/each}}
+    </section>
+</section>

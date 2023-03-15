@@ -2,7 +2,7 @@
 const Cart = require('./Cart');
 const DeliveryService = require('./DeliveryService');
 const Dish = require('./Dish');
-const Order = require('./Order')
+const Order = require('./Order');
 const Promo = require('./Promo');
 const Resto = require('./Resto');
 const Tag = require('./Tag');
@@ -40,6 +40,10 @@ Cart.belongsTo(User, { foreignKey: 'userId' });
 Order.belongsTo(DeliveryService, { foreignKey: 'deliveryServiceId' });
 DeliveryService.hasMany(Order, { foreignKey: 'deliveryServiceId' });
 
+// TODO: add association between DeliveryService and Resto
+Resto.belongsToMany(DeliveryService, { through: 'restoDeliveryService' });
+DeliveryService.belongsToMany(Resto, { through: 'restoDeliveryService' });
+
 // An Order can have many carts, but a cart belongs to an Order
 Order.hasMany(Cart, { foreignKey: 'orderId' });
 Cart.belongsTo(Order, { foreignKey: 'orderId' });
@@ -47,6 +51,5 @@ Cart.belongsTo(Order, { foreignKey: 'orderId' });
 // An Order has many dishes & vice versa, through order_items
 Order.belongsToMany(Dish, { through: 'order_items' });
 Dish.belongsToMany(Order, { through: 'order_items' });
-
 
 module.exports = { Cart, DeliveryService, Dish, Order, Promo, Resto, Tag, User };

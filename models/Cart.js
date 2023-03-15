@@ -1,7 +1,7 @@
 const { Sequelize, Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class Cart extends Model {};
+class Cart extends Model { };
 
 Cart.init({
     quantity: {
@@ -9,6 +9,7 @@ Cart.init({
         allowNull: false,
         defaultValue: 1
     }
-});
+},
+    { sequelize });
 
 module.exports = Cart;

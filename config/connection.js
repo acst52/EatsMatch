@@ -14,3 +14,4 @@ const sequelize = process.env.JAWSDB_URL
 
 // export sequelize var so it can be used elsewhere to perform db operations
 module.exports = sequelize;
+

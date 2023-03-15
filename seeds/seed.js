@@ -1,18 +1,32 @@
+
 //This is temporary code will be modified
 
-const { Resto, Dish } = require('./models');
+
+const { Resto, Dish } = require('../models');
+
+
+
 
 //const doorDashData = require('./doorDashData.json');
 //const uberEatsData = require('./uberEatsData.json');
 
 const sequelize = require('../config/connection')
 const seedRestaurants = async () => {
+
   await sequelize.sync({ force: true });
  
   await Resto.bulkCreate([
 
     {
       resto_name: "Burger's Priest",
+      cuisine: 'Burgers',
+=======
+  
+  await sequelize.sync({ force: true });
+
+  await Resto.bulkCreate([
+    {
+      name: "Burger's Priest",
       cuisine: 'Burgers',
       address: '212 Adelaide St W, Toronto, ON M5H 1W7',
       phoneNumber: '(647) 748-8100',
@@ -95,7 +109,6 @@ const seedRestaurants = async () => {
         {name:'Kung Pao Chicken', price: 16.50},
           ]
         },
-
         {
         resto_name:"The Halal Guys",
         cuisine: 'Middle Eastern',
@@ -208,7 +221,6 @@ const seedRestaurants = async () => {
     {name: 'Lobster Bisque', price:  9.49},
     ]
   },
-
     {
     resto_name: "Fogo de Chão Brazilian Steakhouse",
     cuisine: 'Brazilian Steakhouse',
@@ -309,8 +321,7 @@ const seedRestaurants = async () => {
 ]
    }
   ])   
-    
-  // seedRestaurants(); 
+// seedRestaurants(); 
  const createDishes = async() => {
  const restaurants = await Resto.findAll();
  
@@ -355,6 +366,4 @@ for (let i = 0; i < restaurants.length; i++) {
   }
 }
 }
- createDishes()
- 
-
+ createDishes()    

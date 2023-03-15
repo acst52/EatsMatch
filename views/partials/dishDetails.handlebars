@@ -1,0 +1,25 @@
+{{!-- similar layout as the restoMenu.hb --}}
+
+{{#if dishes}}
+  <div class="card-deck">
+    {{#each dishes}}
+      <div class="card">
+        <img src="{{ imageUrl }}" class="card-img-top" alt="{{ name }}">
+        <div class="card-body">
+          <h5 class="card-title">{{ name }}</h5>
+          <p class="card-text">{{ description }}</p>
+          <p class="card-text font-weight-bold">${{ price }}</p>
+          <form action="/cart/add" method="post">
+            <input type="hidden" name="dish_id" value="{{ id }}">
+            <button type="submit" class="btn btn-primary">Add to Cart</button>
+          </form>
+          {{!-- a link to the restoMenu page --}}
+          {{!-- class name left empty for css --}}
+          <a href="/path to restoMenu" class="">Go to restaurant</a>
+        </div>
+      </div>
+    {{/each}}
+  </div>
+{{else}}
+  <p>No dishes found for this search.</p>
+{{/if}}

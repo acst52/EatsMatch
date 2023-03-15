@@ -1,18 +1,16 @@
 const router = require('express').Router();
 
-const apiRoutes = require('./api/');
+// Import route files
 const homeRoutes = require('./homeRoutes');
-const dashboardRoutes = require('./dashboardRoutes');
+const searchRoutes = require('./searchRoutes');
+const restoRoutes = require('./restoRoutes');
+const cartRoutes = require('./cartRoutes');
+// const checkoutRoutes = require('./checkoutRoutes');
 
 router.use('/', homeRoutes);
-router.use('/dashboard', dashboardRoutes);
-router.use('/api', apiRoutes);
+router.use('/search', searchRoutes);
+router.use('/resto', restoRoutes);
+router.use('/cart', cartRoutes);
+// router.use('/checkout', checkoutRoutes);
 
 module.exports = router;
-
-
-// if user clicks button that has indian tag or if they search for indian, same route
-
-// or like there are cards (partials) that are randomly generated on the main view so the main view isnt boring and it offers suggestions to users who are uncertain or dont know what to search for. 
-
-// 
