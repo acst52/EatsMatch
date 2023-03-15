@@ -2,21 +2,12 @@
 <html lang="en">
 
 <head>
+
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EatsMatch</title>
-    <link rel="stylesheet" type="text/css" href="./public/css/jass.css">
-    <!-- if there are more css file -->
-    <!-- <link rel="stylesheet" type="text/css" href="./public/css/style.css">  -->
-
-    <!-- the style is here just for test -->
-
-    <style>
-        .test {
-            border-color: black;
-            border-style: solid;
-        }
-    </style>
+    {{!-- DON'T FORGET TO RE-INCLUDE JASS STYLESHEET IF NEEDED --}}
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
 
 </head>
 
@@ -24,29 +15,37 @@
 
 
     <header>
-        <div class="logo">LOGO</div>
-        <!--logo goes here-->
-        <div class="header">EatsMatch</div>
-        <!--app name goes here-->
-    </header>
-    <nav>
-        {{!-- class name left empty for css --}}
-        <a href="/" class="">Home</a>
-        <!-- {{#if loggedIn}} -->
-        <button id="logout" class="">Logout</button>
-        <!-- {{else}} -->
-        <a href="/login">Login</a>
-        <!-- {{/if}} -->
-        <a href="/cart">
-            <button id="cart" class="">Cart</button>
-        </a>
 
-    </nav>
+        <section class="title">
+            <img id="logo-img" src="/images/eatsmatch-logo.png">
+            Eats<span id="match">Match</span>
+        </section>
+
+        <nav>
+
+            {{!-- class name left empty for css --}}
+            <a href="/" class="">HOME</a>
+
+            <!-- {{#if loggedIn}} -->
+            <button id="logout" class="">LOGOUT</button>
+
+            <!-- {{else}} -->
+
+            <a href="/login">LOGIN</a>
+
+            <!-- {{/if}} -->
+
+            <a href="/cart">CART</a>
+
+        </nav>
+
+    </header>
+
+
+
     <main>
 
-        <div class="container">
-            {{{body}}}
-        </div>
+        {{{body}}}
 
         {{#if loggedIn}}
         <script src="./public/js/logout.js"></script>
@@ -54,6 +53,7 @@
         {{/if}}
 
     </main>
+
 </body>
 
 </html>

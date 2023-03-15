@@ -3,7 +3,7 @@ const { Resto } = require('../models/Resto');
 
 //homepage (later will be search page)
 router.get('/', (req, res) => {
-    res.render('dashboard');
+    res.render('search');
 });
 
 // login route
