@@ -309,12 +309,11 @@ const seedRestaurants = async () => {
    }
   ])   
     
-  
-  const restaurants = await Restaurant.findAll();
-
+  const restaurants = await Resto.findAll();
+  console.log(restaurants)
   for (let i = 0; i < restaurants.length; i++) {
     const restaurant = restaurants[i];
-
+    console.log(restaurant.deliveryServices)
     if (restaurant.deliveryServices.includes('DoorDash')) {
       const doorDashRestaurant = doorDashData.find(
         (r) => r.name.toLowerCase() === restaurant.name.toLowerCase()
@@ -354,4 +353,6 @@ const seedRestaurants = async () => {
 };
 
 seedRestaurants();
+
+ 
 
