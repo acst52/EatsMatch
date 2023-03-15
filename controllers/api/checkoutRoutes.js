@@ -1,7 +1,7 @@
 // DO NOT JUDGE - IN PROGRESSSS
 
 const router = require('express').Router();
-const { Cart, Dish } = require('../models');
+const { Cart, Dish } = require('../../models');
 const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 
 router.post('/checkout', async (req, res) => {

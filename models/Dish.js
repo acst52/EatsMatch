@@ -28,6 +28,10 @@ Dish.init({
   dish_promo: {
     type: DataTypes.STRING,
     allowNull: false
+  },
+    delivery_service: {
+    type: DataTypes.STRING,
+    allowNull: false
   }
 },
   { sequelize });

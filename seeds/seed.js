@@ -2,6 +2,7 @@ const { Resto, Dish } = require('../models');
 
 const doorDashData = require('./doorDashData.json');
 const uberEatsData = require('./uberEatsData.json');
+const sequelize = require('sequelize');
 
 const seedRestaurants = async () => {
   
@@ -10,7 +11,7 @@ const seedRestaurants = async () => {
   await Resto.bulkCreate([
     {
       name: "Burger's Priest",
-      cuisine: 'Burgers',
+      tag: 'Burgers',
       address: '212 Adelaide St W, Toronto, ON M5H 1W7',
       phoneNumber: '(647) 748-8100',
       deliveryServices: ['DoorDash', 'Uber Eats'],
@@ -21,12 +22,12 @@ const seedRestaurants = async () => {
   ]);
 
   // Add dishes for each restaurant
-  const restaurants = await Restaurant.findAll();
+  const restaurants = await Resto.findAll();
 
   for (let i = 0; i < restaurants.length; i++) {
     const restaurant = restaurants[i];
 
-    if (restaurant.deliveryServices.includes('DoorDash')) {
+    if (restaurant.deliveryService.includes('DoorDash')) {
       const doorDashRestaurant = doorDashData.find(
         (r) => r.name.toLowerCase() === restaurant.name.toLowerCase()
       );
@@ -65,3 +66,6 @@ const seedRestaurants = async () => {
 };
 
 seedRestaurants();
+
+
+// make sure this matches the model pls

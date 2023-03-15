@@ -97,6 +97,8 @@ app.use(routes);
 
 // start server & sync db connection
 app.listen(PORT, () => {
-  console.log('Server now listening');
-  sequelize.sync({ force: false })
+    console.log('Server now listening');
+    sequelize.sync({ force: false })
 });
+
+// dish.findAll ... where, deliveryService is doordash, uber eats, map through that to create array. done by accessing whats in the db. set up to access everything in the db for when more items are added or changed
