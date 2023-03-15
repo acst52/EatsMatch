@@ -5,11 +5,12 @@ const { Resto, Dish } = require('./models');
 //const doorDashData = require('./doorDashData.json');
 //const uberEatsData = require('./uberEatsData.json');
 
-
+const sequelize = require('../config/connection')
 const seedRestaurants = async () => {
   await sequelize.sync({ force: true });
  
   await Resto.bulkCreate([
+
     {
       resto_name: "Burger's Priest",
       cuisine: 'Burgers',
