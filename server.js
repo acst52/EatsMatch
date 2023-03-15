@@ -52,6 +52,6 @@ app.use(routes);
 
 // start server & sync db connection
 app.listen(PORT, () => {
-    console.log('Server now listening');
-    sequelize.sync({ force: false })
+  console.log('Server now listening');
+  sequelize.sync({ force: false })
 });
