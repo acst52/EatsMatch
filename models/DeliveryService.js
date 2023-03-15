@@ -25,3 +25,6 @@ DeliveryService.init({
 });
 
 module.exports = DeliveryService;
+
+
+// store current promotional discounts from the 2 sources, and apply to final price to give consumer total
