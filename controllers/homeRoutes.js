@@ -2,7 +2,7 @@ const router = require('express').Router();
 
 //homepage (later will be search page)
 router.get('/', (req, res) => {
-    res.render('dashboard');
+    res.render('search');
 });
 
 // login route

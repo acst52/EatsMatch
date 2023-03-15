@@ -1,21 +1,25 @@
-<h2>Login</h2>
+<section class="login-container">
+  <h2>Login</h2>
 
-<form class="form login-form">
-  <div class="form-group">
-    {{!-- require front-end js to passing input to DB --}}
-    <label for="email-login">Email:</label>
-    <input class="form-input" type="text" id="email-login" />
-  </div>
-  <div class="form-group">
-    {{!-- require front-end js to passing input to DB --}}
-    <label for="password-login">Password:</label>
-    <input class="form-input" type="password" id="password-login" />
-  </div>
-  <div class="form-group">
-    <button class="btn btn-primary" type="submit">Login</button>
-  </div>
-  {{!-- sign up route when clicked --}}
-  <a href="/signup" class="signup-link">Sign Up</a>
-</form>
+  <section class="login-circle">
+    <form class="form login-form">
+      <div class="form-group">
+        {{!-- require front-end js to passing input to DB --}}
+        <label for="email-login">Email:</label>
+        <input class="form-input" type="text" id="email-login" />
+      </div>
+      <div class="form-group">
+        {{!-- require front-end js to passing input to DB --}}
+        <label for="password-login">Password:</label>
+        <input class="form-input" type="password" id="password-login" />
+      </div>
+      <div class="form-group">
+        <button class="btn btn-primary" type="submit">Login</button>
+      </div>
+      {{!-- sign up route when clicked --}}
+      <a href="/signup" class="signup-link">Sign Up</a>
+    </form>
 
-<script src="/js/login.js"></script>
+    <script src="/js/login.js"></script>
+  </section>
+</section>
