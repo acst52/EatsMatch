@@ -87,6 +87,19 @@ label {
     color: var(--two);
 }
 
+.search-bar {
+    border: solid red 1px;
+    width: 100%;
+    height: 100vh;
+    padding: 20px;
+}
+
+#searchHead {
+    font-size: 30px;
+    font-family: 'Merriweather';
+    color: var(--two);
+}
+
 /* Login Page Styling */
 
 .login-container {
