@@ -1,9 +1,8 @@
 // anything thats rendering a page is a front end route. anything thats doing something on backend only with data is an api route
-// userRoutes.js in api: create a user, login and logout a user in api dur - post to create user, post to login user (finds user checks password, creates session), log out that destroys session
-// 
 
 const router = require('express').Router();
 const User = require('../../models/User');
+const withAuth = require('../../utils/auth');
 
 // POST route to create new User
     // async/await handles the asynchronous calls to the db
@@ -36,7 +35,7 @@ router.post('/api/login', async (req, res) => {
 });
 
 // POST route for logging out a user
-router.post('/api/logout', (req, res) => {
+router.post('/api/logout', withAuth, (req, res) => {
     try {
         // destroy user session
         req.session.destroy();
@@ -47,3 +46,5 @@ router.post('/api/logout', (req, res) => {
         res.status(500).json({ message: 'Cannot log you out - server error!' });
     }
 });
+
+module.exports = router;

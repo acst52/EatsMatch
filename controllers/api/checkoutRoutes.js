@@ -14,7 +14,7 @@ router.post('/checkout', async (req, res) => {
         line_items: cartItems.map(item => {
           return {
             price_data: {
-              currency: 'usd',
+              currency: 'cad',
               product_data: {
                 name: item.Dish.name
               },
@@ -51,3 +51,41 @@ router.get('/checkout/cancel', async (req, res) => {
 });
   
 module.exports = router;
+
+
+
+
+// NOTES / STILL WORKING ON STRIPE:
+
+// app.post("/create-checkout-session", async (req, res) => {
+//   try {
+//     const session = await stripe.checkout.sessions.create({
+//       // 1. type of payment accepted:
+//       payment_method_types: ['card'],
+//       mode: 'payment',
+//       // 2. add cart items:
+//       line_items: req.body.items.map(item => {
+//         // return new item that is formatted in the way Stripe wants:
+//         const storeItem = storeItems.get(item.id)
+//         return {
+//           price_data: {
+//             currency: 'cad',
+//             product_data: {
+//               name: storeItem.name
+//             },
+//             unit_amount: storeItem.priceInCents // price in cents
+//           },
+//           quantity: item.quantity
+//         }
+//       }),
+//       // 3. where to send user on payment success
+//       success_url: `${process.env.SERVER_URL}/success.html`,
+//       // 4. where to send user on failure: can be back to cart
+//       cancel_url: `${process.env.SERVER_URL}/cancel.html`
+//       // 5. populate SERVER_URL in .env
+//     })
+//     res.json({ url: session.url })
+//   } catch (error) {
+//     res.status(500).json({ error: error.message })
+//   }
+// })
