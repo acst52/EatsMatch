@@ -184,3 +184,7 @@ router.get('/checkout/cancel', async (req, res) => {
 
 
 module.exports = router;
+
+// store discount # in each restaurant. random #s for supposed discounts for each of the services. add columns in the resto model for uberDiscount, doorDash discount.. hard coded in. then generate 2 prices if resto has both - calc the 2 prices to compare and have checkout button rendered under lowest price. in handlesbars have spots for uber and dd prices
+// in controllers, calc uber price and dd price, have condition that says if uber discount is null, uber price = menu item not avail from uber. otherwise resto menu price and calc the discount, come up with uber and dd price, pass to handlebars. need to incl this info in the resto model in order to do this
+// seed db, write logic for adding things to cart, checkout. what to do when these thigns happen - fetch requests 

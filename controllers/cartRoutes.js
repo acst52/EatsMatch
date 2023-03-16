@@ -46,3 +46,6 @@ router.get('/cart', withAuth, async (req, res) => {
 });
 
 module.exports = router;
+
+// * promotional discount Uber
+// anything thats rendering a page is a front end route. anything thats doing something on backend only with data is an api route

@@ -1,4 +1,4 @@
-const { Sequelize, Model, DataTypes } = require('sequelize');
+const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
 class Dish extends Model { };
@@ -26,6 +26,10 @@ Dish.init({
     allowNull: false
   },
   dish_promo: {
+    type: DataTypes.STRING,
+    allowNull: false
+  },
+    delivery_service: {
     type: DataTypes.STRING,
     allowNull: false
   }

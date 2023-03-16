@@ -1,0 +1,101 @@
+/* Import Fonts */
+@import url('https://fonts.googleapis.com/css?family=Merriweather');
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+
+/* Colour Directory */
+:root {
+    --one: #DEDDD3;
+    --two: #3E534A;
+    --three: #B5BCAC;
+}
+
+/* Whole Body */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Top Bar Styling */
+header {
+    width: 100%;
+    padding: 5px;
+    border: solid black 1px;
+    display: flex;
+    flex-wrap: wrap;
+    background-color: var(--one);
+}
+
+/* Logo & App Name Styling */
+.title {
+    width: 40%;
+    font-family: 'Merriweather';
+    font-size: 50px;
+    font-weight: 200;
+    color: var(--two);
+    display: flex;
+    align-items: center;
+}
+
+#logo-img {
+    height: 100px;
+}
+
+#match {
+    font-weight: 600;
+}
+
+
+/* Nav Bar Styling */
+nav {
+    width: 60%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    font-family: stemFont, 'Nunito';
+}
+
+a {
+    text-decoration: none;
+    border: none;
+    padding: 20px;
+    border-radius: 50px;
+    cursor: pointer;
+    text-align: center;
+    background-color: var(--three);
+    color: var(--two);
+}
+
+a:hover {
+    opacity: 50%;
+}
+
+/* Body Container Styling */
+main {
+    border: solid blue 1px;
+    padding: 10px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--three);
+}
+
+/* Login Page Styling */
+
+.login-container {
+    text-align: center;
+    font-family: 'Merriweather';
+    color: var(--two);
+}
+
+.login-circle {
+    border: solid black 1px;
+    border-radius: 50%;
+    background-color: var(--one);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 300px;
+    width: 300px;
+}
