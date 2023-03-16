@@ -4,7 +4,7 @@ const router = require('express').Router();
 const backEndRoutes = require('./backEndRoutes');
 const checkoutRoutes = require('./checkoutRoutes')
 
-router.use('/api', backEndRoutes);
+router.use('/users', backEndRoutes);
 router.use('/checkout', checkoutRoutes);
 
 module.exports = router;
