@@ -47,3 +47,5 @@ router.post('/api/logout', (req, res) => {
         res.status(500).json({ message: 'Cannot log you out - server error!' });
     }
 });
+
+module.exports = router;
