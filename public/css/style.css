@@ -44,7 +44,6 @@ header {
     font-weight: 600;
 }
 
-
 /* Nav Bar Styling */
 nav {
     width: 60%;
@@ -79,6 +78,13 @@ main {
     justify-content: center;
     background-color: var(--three);
     height: 100vh;
+}
+
+/* Search Page Styling */
+
+label {
+    font-family: 'Nunito';
+    color: var(--two);
 }
 
 /* Login Page Styling */
