@@ -20,7 +20,6 @@
 header {
     width: 100%;
     padding: 5px;
-    border: solid black 1px;
     display: flex;
     flex-wrap: wrap;
     background-color: var(--one);
@@ -56,6 +55,7 @@ nav {
 }
 
 a {
+    font-family: 'Nunito';
     text-decoration: none;
     border: none;
     padding: 20px;
@@ -72,30 +72,72 @@ a:hover {
 
 /* Body Container Styling */
 main {
-    border: solid blue 1px;
     padding: 10px;
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
     background-color: var(--three);
+    height: 100vh;
 }
 
 /* Login Page Styling */
 
 .login-container {
     text-align: center;
-    font-family: 'Merriweather';
     color: var(--two);
 }
 
+#login-msg {
+    font-family: 'Nunito';
+    font-size: 20px;
+    font-weight: 100;
+    margin: 5px;
+}
+
+#login-header {
+    font-family: 'Merriweather';
+    font-size: 50px;
+    margin: 5px;
+}
+
 .login-circle {
-    border: solid black 1px;
     border-radius: 50%;
     background-color: var(--one);
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 300px;
-    width: 300px;
+    height: 500px;
+    width: 500px;
+    box-shadow: 0px 0px 20px 0px var(--two);
+}
+
+label {
+    font-family: 'Nunito';
+}
+
+.form-input,
+.login-btn {
+    font-family: 'Nunito';
+    margin: 5px;
+    padding: 10px;
+    height: 50px;
+    border-radius: 50px;
+    border: none;
+}
+
+.login-btn {
+    background-color: var(--two);
+    color: var(--three);
+    cursor: pointer;
+}
+
+.login-btn:hover {
+    opacity: 50%;
+}
+
+#signup-msg {
+    font-family: 'Nunito';
+    font-size: 15px;
+    margin: 10px;
 }
