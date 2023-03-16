@@ -6,15 +6,15 @@ class DeliveryService extends Model {};
 DeliveryService.init({
     name: {
         type: DataTypes.STRING,
-        allowNull: false
+        allowNull: true
     },
     baseURL: {
         type: DataTypes.STRING,
-        allowNull: false
+        allowNull: true
     },
     logoURL: {
         type: DataTypes.STRING,
-        allowNull: false
+        allowNull: true
     }
 },
 {
