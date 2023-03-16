@@ -10,7 +10,7 @@ router.post('/', async (req, res) => {
     try {
         // get user data from request body
         // const { name, email, password } = req.body;
-        const newUser = await User.create({ name: req.body.name, password: req.body.password });
+        const newUser = await User.create({ name: req.body.name, email: req.body.email, password: req.body.password });
         // return new user as JSON obj
         res.status(201).json(newUser);
         // then block to create session keys for req.session after the above works
