@@ -1,20 +1,61 @@
-<div class="search-bar">
-    <form action="/search" method="get"> 
-        <!--action can be changed for routes-->
+<head>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+    <style>
+        fieldset {
+            border: 0;
+        }
 
-        <label for="search-type">Search for: </label>
-        <select id="search-type" name="search-type">
+        label {
+            display: block;
+            margin: 30px 0 0 0;
+        }
 
-            <option value="typeDish">Dish</option> 
-            <!--value: typeDish, search for dishes-->
-            <option value="typeResto">Resturant</option> 
-            <!--value: typeResto, search for resturants-->
-        </select>
-        <label for="search-query"> </label>
-        <input type="text" id="search-query" name="search-input"> 
-        <!--'name' change if needed-->
-        <button type="submit">Search</button>
+        .overflow {
+            height: 200px;
+        }
+
+        .ui-selectmenu-button {
+            border-radius: 50px;
+            padding: 10px;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+    <script>
+        $(function () {
+            $("#restoSearch").selectmenu();
+
+            $("#tagSearch").selectmenu();
+
+        });
+    </script>
+</head>
+
+<section class="search-bar">
+
+    <form action="/search" method="get">
+
+        <fieldset>
+            <label for="restoSearch">SEARCH BY RESTAURANT</label>
+            <select name="restoSearch" id="restoSearch">
+                <option>Resto1</option>
+                <option>Resto2</option>
+                <option>Resto3</option>
+                <option>Resto4</option>
+                <option>Resto5</option>
+            </select>
+
+            <label for="tagSearch">SEARCH BY DISH</label>
+            <select name="tagSearch" id="tagSearch">
+                <option value="value">Dish1</option>
+                <option value="value">Dish2</option>
+                <option value="value">Dish3</option>
+                <option value="value">Dish4</option>
+            </select>
+
+        </fieldset>
     </form>
-</div>
+
+</section>
 
 {{!-- need some front-end js for this submit button to fetch the path --}}
