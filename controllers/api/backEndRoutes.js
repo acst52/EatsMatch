@@ -40,7 +40,7 @@ router.post('/login', async (req, res) => {
     });
 
     if (!user) {
-        // if no user exists in db, redirect to signup pg
+    
         res.status(400).json({ message: 'Incorrect email or password, please try again !' });
         return;
     }
@@ -51,6 +51,7 @@ router.post('/login', async (req, res) => {
 
         res.status(400).json({ message: 'Incorrect email or password, please try again !' });
         return;
+
     }
 
     // store userId in session, return user obj as JSON data

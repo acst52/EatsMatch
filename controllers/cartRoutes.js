@@ -35,7 +35,7 @@ router.get('/cart', withAuth, async (req, res) => {
             return acc + item.quantity * item.Dish.price;
         }, 0);
         // render the cart page template
-        res.render('cart', {
+        res.render('cart', { loggedIn: res.session.loggedIn }, {
             title: 'Cart',
             cartTotal,
             totalPrice
@@ -46,6 +46,3 @@ router.get('/cart', withAuth, async (req, res) => {
 });
 
 module.exports = router;
-
-// * promotional discount Uber
-// anything thats rendering a page is a front end route. anything thats doing something on backend only with data is an api route
