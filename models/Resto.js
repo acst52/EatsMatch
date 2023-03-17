@@ -25,10 +25,10 @@ Resto.init({
     type: DataTypes.DECIMAL,
     allowNull: true
   },
-  tag: {
-    type: DataTypes.STRING,
-    allowNull: false
-  },
+  //tag: {
+  //  type: DataTypes.STRING,
+  //  allowNull: false
+  //},
   // delivery_service: {
   //   type: DataTypes.INTEGER,
   //   allowNull: true,
@@ -37,7 +37,7 @@ Resto.init({
   //     key: 'id'
   //   }
   // }
-},
+//},
   { sequelize });
 
 module.exports = Resto;
