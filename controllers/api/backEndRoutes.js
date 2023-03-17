@@ -31,7 +31,8 @@ router.post('/', async (req, res) => {
 // POST route to login user
 router.post('/login', async (req, res) => {
 
-    console.log(req.body);    // find user with matching email and password
+    console.log(req.body);
+    // find user with matching email and password
     const user = await User.findOne({
         where:
         {
@@ -40,7 +41,7 @@ router.post('/login', async (req, res) => {
     });
 
     if (!user) {
-    
+
         res.status(400).json({ message: 'Incorrect email or password, please try again !' });
         return;
     }
