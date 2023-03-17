@@ -3,9 +3,7 @@ const Cart = require('./Cart');
 const DeliveryService = require('./DeliveryService');
 const Dish = require('./Dish');
 const Order = require('./Order');
-const Promo = require('./Promo');
 const Resto = require('./Resto');
-const Tag = require('./Tag');
 const User = require('./User');
 
 // User has many orders, an order belongs to one user
@@ -15,18 +13,6 @@ Order.belongsTo(User, { foreignKey: 'userId' });
 // Resto has many dishes, and dish belongs to one resto
 Resto.hasMany(Dish, { foreignKey: 'restoID' });
 Dish.belongsTo(Resto, { foreignKey: 'restoID' });
-
-// Resto has many tags, and a tag belongs to many restos...
-Resto.belongsToMany(Tag, { through: 'resto_tags', foreignKey: 'restoID' });
-Tag.belongsToMany(Resto, { through: 'resto_tags', foreignKey: 'tagId' });
-
-// Dish has many tags, and a tag belongs to many dishes...
-Dish.belongsToMany(Tag, { through: 'dish_tags', foreignKey: 'dishId' });
-Tag.belongsToMany(Dish, { through: 'dish_tags', foreignKey: 'tagId' });
-
-// Resto has many promos, and a promo belongs to one resto:
-Resto.hasMany(Promo, { foreignKey: 'restoId' });
-Promo.belongsTo(Resto, { foreignKey: 'restoId' });
 
 // A Cart has many Dishes & vice versa, through cart_items
 Cart.belongsToMany(Dish, { through: 'cart_items' });
@@ -52,4 +38,4 @@ Cart.belongsTo(Order, { foreignKey: 'orderId' });
 Order.belongsToMany(Dish, { through: 'order_items' });
 Dish.belongsToMany(Order, { through: 'order_items' });
 
-module.exports = { Cart, DeliveryService, Dish, Order, Promo, Resto, Tag, User };
+module.exports = { Cart, DeliveryService, Dish, Order, Resto, User };
