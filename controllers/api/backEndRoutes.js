@@ -5,23 +5,31 @@ const User = require('../../models/User');
 const withAuth = require('../../utils/auth');
 
 // POST route to create new User
-    // async/await handles the asynchronous calls to the db
-router.post('/api/users', async (req, res) => {
+router.post('/', async (req, res) => {
+    console.log(req.body);
     try {
         // get user data from request body
-        const { name, email, password } = req.body;
-        const user = await User.create({ name, email, password });
+        // const { name, email, password } = req.body;
+        const newUser = await User.create({ 
+            name: req.body.name, 
+            email: req.body.email, 
+            password: req.body.password 
+        });
+
+        // regenerate session to create new session keys
+        req.session.logged_in = true;
+        req.session.user_id = newUser.id;
+
         // return new user as JSON obj
-        res.status(201).json(user);
+        res.status(201).json(newUser);
     } catch (error) {
-        console.error(error);
+        console.log(error);
         res.status(500).json({ message: 'Server error: cannot create user' });
     }
 });
 
 // POST route to login user
 router.post('/api/login', async (req, res) => {
-    const { email, password } = req.body;
     // find user with matching email and password
     const user = await User.findOne({ where: { email, password } });
     if (!user) {
@@ -29,8 +37,8 @@ router.post('/api/login', async (req, res) => {
     res.redirect('signup');
     } else {
         // store userId in session, return user obj as JSON data
-    req.session.userId = user.id;
-    res,json(user);
+    req.session.user_id = user.id;
+    res.json(user);
     }
 });
 
