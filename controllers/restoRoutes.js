@@ -4,7 +4,7 @@ const { Dish, Resto } = require('../models');
 // GET /restaurant/:id --> when you click on individ resto, goes to resto page, then if it has an assoc with uber eats, doordash or both, it will show the dishes with prices. *** IF ASSOC EXISTS, SHOW COUPONS/PROMOS OF SAID DELIVERY SERVICE ***
 // icon in page when searching for ubereats versus doordash or both
 
-router.get('/restaurant/:id', async (req, res) => {
+router.get('/resto/:id', async (req, res) => {
     try {
         // find the resto by id
         const resto = await Resto.findByPk(req.params.id);
