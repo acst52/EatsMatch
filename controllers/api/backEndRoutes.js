@@ -5,7 +5,7 @@ const User = require('../../models/User');
 const withAuth = require('../../utils/auth');
 
 // POST route to create new User
-router.post('/login', async (req, res) => {
+router.post('/', async (req, res) => {
     console.log(req.body);
     try {
         // get user data from request body
@@ -37,7 +37,7 @@ router.post('/api/login', async (req, res) => {
     res.redirect('signup');
     } else {
         // store userId in session, return user obj as JSON data
-    req.session.userId = user.id;
+    req.session.user_id = user.id;
     res.json(user);
     }
 });
