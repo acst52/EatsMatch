@@ -23,17 +23,16 @@
 
         <nav>
 
-            {{!-- class name left empty for css --}}
             <a href="/" class="">HOME</a>
 
-            <!-- {{#if loggedIn}} -->
-            <button id="logout" class="">LOGOUT</button>
+            {{#if logged_in}}
+            <button id="logout-btn" class="">LOGOUT</button>
 
-            <!-- {{else}} -->
+            {{else}}
 
             <a href="/login">LOGIN</a>
 
-            <!-- {{/if}} -->
+            {{/if}}
 
             <a href="/cart">CART</a>
 
@@ -47,12 +46,11 @@
 
         {{{body}}}
 
-        {{#if loggedIn}}
-        <script src="./public/js/logout.js"></script>
-        <!-- need to make a logout.js later -->
-        {{/if}}
-
     </main>
+
+    {{#if logged_in}}
+    <script src="/js/logout.js"></script>
+    {{/if}}
 
 </body>
 

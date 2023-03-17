@@ -10,10 +10,10 @@ router.post('/', async (req, res) => {
     try {
         // get user data from request body
         // const { name, email, password } = req.body;
-        const newUser = await User.create({ 
-            name: req.body.name, 
-            email: req.body.email, 
-            password: req.body.password 
+        const newUser = await User.create({
+            name: req.body.name,
+            email: req.body.email,
+            password: req.body.password
         });
 
         // regenerate session to create new session keys
@@ -29,27 +29,50 @@ router.post('/', async (req, res) => {
 });
 
 // POST route to login user
-router.post('/api/login', async (req, res) => {
-    // find user with matching email and password
-    const user = await User.findOne({ where: { email, password } });
+router.post('/login', async (req, res) => {
+
+    console.log(req.body);    // find user with matching email and password
+    const user = await User.findOne({
+        where:
+        {
+            email: req.body.email,
+        }
+    });
+
     if (!user) {
-    // if no user exists in db, redirect to signup pg
-    res.redirect('signup');
-    } else {
-        // store userId in session, return user obj as JSON data
-    req.session.user_id = user.id;
-    res.json(user);
+    
+        res.status(400).json({ message: 'Incorrect email or password, please try again !' });
+        return;
     }
+
+    const validPassword = await user.checkPassword(req.body.password);
+
+    if (!validPassword) {
+
+        res.status(400).json({ message: 'Incorrect email or password, please try again !' });
+        return;
+
+    }
+
+    // store userId in session, return user obj as JSON data
+
+    req.session.save(() => {
+        req.session.logged_in = true;
+        res.status(200).json({ user: user, message: 'You are now logged in !' });
+    });
+
 });
 
 // POST route for logging out a user
-router.post('/api/logout', withAuth, (req, res) => {
-    try {
+router.post('/logout', (req, res) => {
+
+    if (req.session.logged_in) {
         // destroy user session
         req.session.destroy();
         // return success msg
+        res.status(204).end();
         res.json({ message: 'logout successful!' });
-    } catch (error) {
+    } else {
         console.error(error);
         res.status(500).json({ message: 'Cannot log you out - server error!' });
     }
