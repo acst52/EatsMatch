@@ -29,14 +29,14 @@ Resto.init({
     type: DataTypes.STRING,
     allowNull: false
   },
-  // delivery_service: {
-  //   type: DataTypes.INTEGER,
-  //   allowNull: true,
-  //   references: {
-  //     model: 'deliveryService',
-  //     key: 'id'
-  //   }
-  // }
+  delivery_service: {
+    type: DataTypes.INTEGER,
+    allowNull: true,
+    references: {
+      model: 'delivery_services',
+      key: 'id'
+    }
+  }
 },
   { sequelize });
 

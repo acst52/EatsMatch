@@ -1,3 +1,4 @@
+const { Resto } = require('../models')
 const createDishes = async() => {
     const restaurants = await Resto.findAll();
     

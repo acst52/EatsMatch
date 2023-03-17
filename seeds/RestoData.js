@@ -6,7 +6,7 @@ const restoData = [
     {
       resto_name: "Burger's Priest",
       
-      delivery_service: ['DoorDash', 'Uber Eats'],
+      delivery_service: '1',
      
       resto_promo_dd: '0',
       resto_promo_uber: '0.25',
@@ -19,7 +19,7 @@ const restoData = [
       {
       resto_name:"Pizzeria Mozza" ,
       
-      delivery_service: ['DoorDash', 'Uber Eats'],
+      delivery_service: '1',
       
       resto_promo_dd: '0',
       resto_promo_uber: '0.25',
@@ -32,7 +32,7 @@ const restoData = [
       {
       resto_name:"Cheesecake Factory",
       
-      delivery_service: ['DoorDash', 'Uber Eats'],
+      delivery_service: '1',
       
       resto_promo_dd: '0',
       resto_promo_uber: '0.25',
@@ -45,7 +45,7 @@ const restoData = [
       {
         resto_name:"Kura Sushi",
        
-        delivery_service: ['DoorDash', 'Uber Eats'],
+        delivery_service: '1',
         
         resto_promo_dd: '0',
         resto_promo_uber: '0.25',
@@ -58,7 +58,7 @@ const restoData = [
         {
           resto_name: "The Capital Grille",
           
-          delivery_service: ['DoorDash', 'Uber Eats'],
+          delivery_service: '1',
           
           resto_promo_dd: '0',
           resto_promo_uber: '0.25',
@@ -71,7 +71,7 @@ const restoData = [
           {
           resto_name: "P.F. Chang's",
           
-          delivery_service:['DoorDash', 'Uber Eats'],
+          delivery_service: '1',
           
           resto_promo_dd: '0',
           resto_promo_uber: '0.25',
@@ -85,7 +85,7 @@ const restoData = [
         {
         resto_name:"The Halal Guys",
         
-        delivery_service:['Grubhub', 'Uber Eats'],
+        delivery_service: '1',
         
         resto_promo_uber: '0.25',
         resto_img: 'https://www.thehalalguys.com/wp-content/uploads/2020/01/homepage-mobile-banner-2.jpg',
@@ -97,7 +97,7 @@ const restoData = [
        {   
        resto_name: "TGI Fridays",
        
-       delivery_service: ['DoorDash', 'Uber Eats'],
+       delivery_service: '1',
        
        resto_promo_dd: '0',
        resto_promo_uber: '0.25',
@@ -110,7 +110,7 @@ const restoData = [
   {
     resto_name: "Five Guys",
     
-    delivery_service: ['DoorDash', 'Uber Eats'],
+    delivery_service: '1',
     
     resto_promo_dd: '0',
     resto_promo_uber: '0.25',
@@ -123,7 +123,7 @@ const restoData = [
     {
       resto_name: "Blaze Pizza",
       
-      delivery_service: ['DoorDash', 'Uber Eats'],
+      delivery_service: '1',
       
       resto_promo_dd: '0',
       resto_promo_uber: '0.25',
@@ -136,7 +136,7 @@ const restoData = [
   {
     resto_name: "Chipotle Mexican Grill",
    
-    delivery_service: ['DoorDash', 'Uber Eats'],
+    delivery_service: '1',
    
     resto_promo_dd: '0',
     resto_promo_uber: '0.25',
@@ -149,7 +149,7 @@ const restoData = [
   {
    resto_name: "Dunkin",
   
-   delivery_service: ['DoorDash', 'Uber Eats'],
+   delivery_service: '1',
    
    resto_promo_dd: '0',
    resto_promo_uber: '0.25',
@@ -162,7 +162,7 @@ const restoData = [
    {
     resto_name: "The Melting Pot",
     
-    delivery_service: ['DoorDash', 'Uber Eats'],
+    delivery_service: '1',
     
     resto_promo_dd: '0',
     resto_promo_uber: '0.25',
@@ -175,7 +175,7 @@ const restoData = [
     {
     resto_name: "Red Lobster",
     
-    delivery_service: ['DoorDash', 'Uber Eats'],
+    delivery_service: '1',
     
     resto_promo_dd: '0',
     resto_promo_uber: '0.25',
@@ -189,7 +189,7 @@ const restoData = [
     {
     resto_name: "Fogo de Chão Brazilian Steakhouse",
     
-    delivery_service: ['DoorDash', 'Grubhub'],
+    delivery_service: '1',
     
     resto_promo_dd: '0',
     resto_img: 'https://fogodechao.com/wp-content/uploads/2021/03/Fogo-Menu-10.2020.pdf',
@@ -201,7 +201,7 @@ const restoData = [
     {
     resto_name: "KFC",
     
-    delivery_service: ['DoorDash', 'Uber Eats'],
+    delivery_service: '1',
     
     resto_promo_dd: '0',
     resto_promo_uber: '0.25',
@@ -214,7 +214,7 @@ const restoData = [
    {
     resto_name: "Nando's",
    
-    delivery_service: ['DoorDash', 'Uber Eats'],
+    delivery_service: '1',
    
     resto_promo_dd: '0',
     resto_promo_uber: '0.25',
@@ -227,7 +227,7 @@ const restoData = [
    {
    resto_name: "Panda Express",
   
-   delivery_service: ['DoorDash', 'Uber Eats'],
+   delivery_service: '1',
    
    resto_promo_dd: '0',
    resto_promo_uber: '0.25',
@@ -241,7 +241,7 @@ const restoData = [
    {
    resto_name: "Tatsu Ramen",
    
-   delivery_service: ['DoorDash', 'Uber Eats'],
+   delivery_service: '1',
    
    resto_promo_dd: '0',
    resto_promo_uber: '0.25',
@@ -254,7 +254,7 @@ const restoData = [
     {
     resto_name: "Yard House",
    
-    delivery_service:  ['DoorDash', 'Uber Eats'],
+    delivery_service: '1',
     
     resto_promo_dd: '0',
     resto_promo_uber: '0.25',
@@ -267,7 +267,7 @@ const restoData = [
    {
      resto_name: "Sushi Roku",
     
-     delivery_service: ['DoorDash', 'Uber Eats'],
+     delivery_service: '1',
      
      resto_promo_dd: '0',
      resto_promo_uber: '0.25',

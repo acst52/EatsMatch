@@ -4,6 +4,11 @@ const sequelize = require('../config/connection');
 class DeliveryService extends Model {};
 
 DeliveryService.init({
+    id: {
+        type: DataTypes.INTEGER,
+        primaryKey: true,
+        allowNull: true
+      },
     name: {
         type: DataTypes.STRING,
         allowNull: true
@@ -21,7 +26,7 @@ DeliveryService.init({
     sequelize,
     timestamps: false,
     underscored: true,
-    modelName: 'delivery_service'
+    modelName: 'deliveryservice'
 });
 
 module.exports = DeliveryService;
