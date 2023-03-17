@@ -220,6 +220,6 @@ const RestoData = [
   ]  
 
 
-const seedResto = () => Resto.bulkCreate(restoData);
+const seedResto = () => Resto.bulkCreate(RestoData);
 
 module.exports = seedResto;
