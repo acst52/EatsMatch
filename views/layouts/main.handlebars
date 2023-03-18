@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EatsMatch</title>
+    {{!-- DON'T FORGET TO RE-INCLUDE JASS STYLESHEET IF NEEDED --}}
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+
+</head>
+
+<body>
+
+
+    <header>
+
+        <section class="title">
+            <img id="logo-img" src="/images/eatsmatch-logo.png">
+            Eats<span id="match">Match</span>
+        </section>
+
+        <nav>
+
+            <a href="/" class="">HOME</a>
+
+            {{#if logged_in}}
+            <button id="logout-btn" class="">LOGOUT</button>
+            {{else}}
+            <a href="/login">LOGIN</a>
+            {{/if}}
+            <a href="/cart">CART</a>
+
+        </nav>
+
+    </header>
+
+
+
+    <main>
+
+        {{{body}}}
+
+    </main>
+
+    {{#if logged_in}}
+    <script src="/js/logout.js"></script>
+    {{/if}}
+
+</body>
+
+</html>

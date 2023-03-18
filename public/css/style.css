@@ -1,0 +1,181 @@
+/* Import Fonts */
+@import url('https://fonts.googleapis.com/css?family=Merriweather');
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+
+/* Colour Directory */
+:root {
+    --one: #DEDDD3;
+    --two: #3E534A;
+    --three: #B5BCAC;
+}
+
+/* Whole Body */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Top Bar Styling */
+header {
+    width: 100%;
+    padding: 5px;
+    display: flex;
+    flex-wrap: wrap;
+    background-color: var(--one);
+}
+
+/* Logo & App Name Styling */
+.title {
+    width: 40%;
+    font-family: 'Merriweather';
+    font-size: 50px;
+    font-weight: 200;
+    color: var(--two);
+    display: flex;
+    align-items: center;
+}
+
+#logo-img {
+    height: 100px;
+}
+
+#match {
+    font-weight: 600;
+}
+
+/* Nav Bar Styling */
+nav {
+    width: 60%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    font-family: stemFont, 'Nunito';
+}
+
+a {
+    font-family: 'Nunito';
+    text-decoration: none;
+    border: none;
+    padding: 20px;
+    border-radius: 50px;
+    cursor: pointer;
+    text-align: center;
+    background-color: var(--three);
+    color: var(--two);
+}
+
+a:hover {
+    opacity: 50%;
+}
+
+#logout-btn {
+    padding: 20px;
+    border-radius: 50px;
+    background-color: var(--three);
+    border: none;
+    cursor: pointer;
+    color: var(--two);
+}
+
+/* Body Container Styling */
+main {
+    padding: 10px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--three);
+    height: 100vh;
+}
+
+/* Search Page Styling */
+
+label {
+    font-family: 'Nunito';
+    color: var(--two);
+}
+
+.search-bar {
+    border: solid red 1px;
+    width: 100%;
+    height: 100vh;
+    padding: 20px;
+}
+
+#searchHead {
+    font-size: 30px;
+    font-family: 'Merriweather';
+    color: var(--two);
+}
+
+/* Login Page Styling */
+
+.login-container,
+.signup-container {
+    text-align: center;
+    color: var(--two);
+}
+
+#login-msg {
+    font-family: 'Nunito';
+    font-size: 20px;
+    font-weight: 100;
+    margin: 5px;
+}
+
+#login-header,
+#signup-header {
+    font-family: 'Merriweather';
+    font-size: 50px;
+    margin: 5px;
+    color: var(--two);
+}
+
+.login-circle,
+.signup-circle {
+    border-radius: 50%;
+    background-color: var(--one);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 500px;
+    width: 500px;
+    box-shadow: 0px 0px 20px 0px var(--two);
+}
+
+label {
+    font-family: 'Nunito';
+}
+
+.form-input,
+.login-btn,
+.signup-btn {
+    font-family: 'Nunito';
+    margin: 5px;
+    padding: 10px;
+    height: 50px;
+    border-radius: 50px;
+    border: none;
+}
+
+.login-btn,
+.signup-btn {
+    background-color: var(--two);
+    color: var(--three);
+    cursor: pointer;
+}
+
+.login-btn:hover {
+    opacity: 50%;
+}
+
+#signup-msg {
+    font-family: 'Nunito';
+    font-size: 15px;
+    margin: 10px;
+}
+
+.signup-circle {
+    margin-top: 20px;
+}
