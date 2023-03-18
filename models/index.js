@@ -11,7 +11,7 @@ User.hasMany(Order, { foreignKey: 'userId', onDelete: 'CASCADE' });
 Order.belongsTo(User, { foreignKey: 'userId' });
 
 // Resto has many dishes, and dish belongs to one resto
-Resto.hasMany(Dish, { foreignKey: 'restoID' });
+Resto.hasMany(Dish, { foreignKey: 'restoID' }); // restoID is NULL in dishes table *****
 Dish.belongsTo(Resto, { foreignKey: 'restoID' });
 
 // A Cart has many Dishes & vice versa, through cart_items
@@ -27,8 +27,8 @@ Order.belongsTo(DeliveryService, { foreignKey: 'deliveryServiceId' });
 DeliveryService.hasMany(Order, { foreignKey: 'deliveryServiceId' });
 
 // TODO: add association between DeliveryService and Resto
-Resto.belongsToMany(DeliveryService, { through: 'restoDeliveryService' });
-DeliveryService.belongsToMany(Resto, { through: 'restoDeliveryService' });
+Resto.hasMany(DeliveryService, { foreignKey: 'restoId' });
+DeliveryService.belongsTo(Resto, { foreignKey: 'restoId' });
 
 // An Order can have many carts, but a cart belongs to an Order
 Order.hasMany(Cart, { foreignKey: 'orderId' });

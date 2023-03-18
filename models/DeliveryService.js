@@ -19,6 +19,7 @@ DeliveryService.init({
 },
 {
     sequelize,
+    tableName: 'deliveryService', // set explicit table name so Resto can ref it
     timestamps: false,
     underscored: true,
     modelName: 'delivery_service'

@@ -25,18 +25,14 @@ Resto.init({
     type: DataTypes.DECIMAL,
     allowNull: true
   },
-  tag: {
-    type: DataTypes.STRING,
-    allowNull: false
-  },
-  // delivery_service: {
-  //   type: DataTypes.INTEGER,
-  //   allowNull: true,
-  //   references: {
-  //     model: 'deliveryService',
-  //     key: 'id'
-  //   }
-  // }
+  delivery_service: {
+    type: DataTypes.INTEGER, // looking for single integer as deliv service value
+    allowNull: true,
+    references: {
+      model: 'deliveryService',
+      key: 'id'
+    }
+  }
 },
   { sequelize });
 
