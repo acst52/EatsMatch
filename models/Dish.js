@@ -11,28 +11,23 @@ Dish.init({
   },
   dish_name: {
     type: DataTypes.STRING,
-    allowNull: false
-  },
-  dish_description: {
-    type: DataTypes.STRING,
-    allowNull: false
+    allowNull: false,
   },
   dish_price: {
     type: DataTypes.FLOAT,
     allowNull: false
   },
-  dish_img: {
-    type: DataTypes.STRING,
-    allowNull: false
-  },
-  dish_promo: {
-    type: DataTypes.STRING,
-    allowNull: false
-  },
-    delivery_service: {
-    type: DataTypes.STRING,
-    allowNull: false
+  resto: {
+    type: DataTypes.INTEGER,
+    references: {
+      model: "Restos",
+      key: "id"
+    },
   }
+  // dish_img: {
+  //   type: DataTypes.STRING,
+  //   allowNull: false
+  // }
 },
   { sequelize });
 
