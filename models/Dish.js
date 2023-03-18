@@ -17,6 +17,7 @@ Dish.init({
     type: DataTypes.FLOAT,
     allowNull: false
   },
+  // since restos have multiple dishes, we want them to be assoc with resto id
   resto: {
     type: DataTypes.INTEGER,
     references: {
