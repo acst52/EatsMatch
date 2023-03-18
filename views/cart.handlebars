@@ -1,6 +1,6 @@
 {{!-- Cart handlebar with its own path --}}
 
-<div id="cart" class="container">
+{{!-- <div id="cart" class="container">
     <div class="cart-content">
         <h4>Cart</h4>
         <div class="item">
@@ -11,4 +11,40 @@
         {{!-- when checkout is clicked, render the stripe.hb ? not sure if we are fetch stripe or use our own checkout handlebar--}}
         <button class="checkout-button">Checkout</button>
     </div>
-</div>
+</div> --}}
+
+{{#if cartTotal}}
+    <div id="cart" class="container">
+        <div class="cart-content">
+            <h4>Cart</h4>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Item Name</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
+                        <th>Subtotal</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each cartTotal}}
+                        <tr>
+                            <td>{{this.Dish.dish_name}}</td>
+                            <td>{{this.Dish.dish_price}}</td>
+                            <td>{{this.quantity}}</td>
+                            <td>{{this.quantity this.Dish.dish_price}}</td>
+                        </tr>
+                    {{/each}}
+                    <tr>
+                        <td colspan="3">Total</td>
+                        <td>{{totalPrice}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+{{else}}
+    <p>Your cart is empty.</p>
+{{/if}}
+
+<script src="../public/js/cart.js"></script>

@@ -35,7 +35,7 @@ router.get('/cart', withAuth, async (req, res) => {
             return acc + item.quantity * item.Dish.price;
         }, 0);
         // render the cart page template
-        res.render('cart', { loggedIn: res.session.loggedIn }, {
+        res.render('cart', { loggedIn: res.session.loggedIn}, {
             title: 'Cart',
             cartTotal,
             totalPrice
