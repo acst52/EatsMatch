@@ -28,7 +28,7 @@ router.get('/signup', (req, res) => {
 
 // cart route
 router.get('/cart', (req, res) => {
-    res.render('cart', { loggedIn: res.session.loggedIn });
+    res.render('cart', { logged_in: req.session.logged_in });
 });
 
 // GET restaurants to populate homepage - say 4 random ones?
