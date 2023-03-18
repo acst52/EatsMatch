@@ -23,10 +23,24 @@
     <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
     <script>
         $(function () {
+            {{!-- $("#restoSearch").selectmenu();
+
+            $("#tagSearch").selectmenu(); --}}
+        // so here we want to init the selectmenu widget to refresh so it generates the dishes/restos dynamically.
+        $(function () {
+            $.get('/api/restos', function (restos) {
+                const restoOptions = restos.map(resto => `<option value="${resto.id}">${resto.resto_name}</option>`).join('');
+                $("#restoSearch").html(restoOptions).selectmenu('refresh');
+            });
+
+            $.get('/api/dishes', function (dishes) {
+                const dishOptions = dishes.map(dish => `<option value="${dish.id}">${dish.dish_name}</option>`).join('');
+                $("#tagSearch").html(dishOptions).selectmenu('refresh');
+            });
+
             $("#restoSearch").selectmenu();
-
             $("#tagSearch").selectmenu();
-
+        }
         });
     </script>
 </head>
@@ -40,19 +54,17 @@
         <fieldset>
             <label for="restoSearch">SEARCH BY RESTAURANT</label>
             <select name="restoSearch" id="restoSearch">
-                <option>Resto1</option>
-                <option>Resto2</option>
-                <option>Resto3</option>
-                <option>Resto4</option>
-                <option>Resto5</option>
+                {{!-- POPULATE DROPDOWNS WITH DATA FROM DB: each block to loop thru restos and dishes arrays, creating an option element for ea item. value attrib is set to id of resto or dish, displayed test = resto or dish name. --}}
+                {{#each restos}}
+                    <option value ="{{id}}">{{resto_name}}</option>
+                {{/each}}
             </select>
 
             <label for="tagSearch">SEARCH BY DISH</label>
             <select name="tagSearch" id="tagSearch">
-                <option value="value">Dish1</option>
-                <option value="value">Dish2</option>
-                <option value="value">Dish3</option>
-                <option value="value">Dish4</option>
+                {{#each dishes}}
+                    <option value ="{{id}}">{{dish_name}}</option>
+                {{/each}}
             </select>
 
         </fieldset>
