@@ -1,20 +1,19 @@
 const sequelize = require('../config/connection');
 
-//const seedDish = require('./DishData');
-const seedDeliveryData = require('./DeliveryServiceData');
+const seedDeliveryService = require('./DeliveryServiceData');
+const seedDish = require('./DishData');
 const seedResto = require('./RestoData');
+
 const seedAll = async () => {
   
   await sequelize.sync({ force: true });
   
-  await seedDeliveryData();
-  await seedResto();
-  
+  await seedDeliveryService();
 
-  //await seedDish();
-  
-  
-  
+  await seedResto();
+
+  await seedDish();
+
 };
+
 seedAll();
-  

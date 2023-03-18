@@ -25,15 +25,11 @@ Resto.init({
     type: DataTypes.DECIMAL,
     allowNull: true
   },
-  tag: {
-    type: DataTypes.STRING,
-    allowNull: false
-  },
   delivery_service: {
-    type: DataTypes.INTEGER,
+    type: DataTypes.INTEGER, // looking for single integer as deliv service value
     allowNull: true,
     references: {
-      model: 'delivery_services',
+      model: 'deliveryService',
       key: 'id'
     }
   }

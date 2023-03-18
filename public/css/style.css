@@ -69,6 +69,15 @@ a:hover {
     opacity: 50%;
 }
 
+#logout-btn {
+    padding: 20px;
+    border-radius: 50px;
+    background-color: var(--three);
+    border: none;
+    cursor: pointer;
+    color: var(--two);
+}
+
 /* Body Container Styling */
 main {
     padding: 10px;
@@ -103,7 +112,8 @@ label {
 
 /* Login Page Styling */
 
-.login-container {
+.login-container,
+.signup-container {
     text-align: center;
     color: var(--two);
 }
@@ -115,13 +125,16 @@ label {
     margin: 5px;
 }
 
-#login-header {
+#login-header,
+#signup-header {
     font-family: 'Merriweather';
     font-size: 50px;
     margin: 5px;
+    color: var(--two);
 }
 
-.login-circle {
+.login-circle,
+.signup-circle {
     border-radius: 50%;
     background-color: var(--one);
     display: flex;
@@ -137,7 +150,8 @@ label {
 }
 
 .form-input,
-.login-btn {
+.login-btn,
+.signup-btn {
     font-family: 'Nunito';
     margin: 5px;
     padding: 10px;
@@ -146,7 +160,8 @@ label {
     border: none;
 }
 
-.login-btn {
+.login-btn,
+.signup-btn {
     background-color: var(--two);
     color: var(--three);
     cursor: pointer;
@@ -160,4 +175,8 @@ label {
     font-family: 'Nunito';
     font-size: 15px;
     margin: 10px;
+}
+
+.signup-circle {
+    margin-top: 20px;
 }
