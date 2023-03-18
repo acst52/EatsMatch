@@ -29,7 +29,7 @@ Resto.init({
     type: DataTypes.INTEGER, // looking for single integer as deliv service value
     allowNull: true,
     references: {
-      model: 'deliveryService',
+      model: 'deliveryservice',
       key: 'id'
     }
   }
