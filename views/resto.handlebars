@@ -1,8 +1,60 @@
-<section class="container">
-    <h3 class="resto-name">{{!--'resto name from front-end' --}}</h3>
-    <section class="flex-row justify-center">
-        {{#each resto.name as |name|}}
-        {{> restoDetails}}
-        {{/each}}
+<section class="resto-container">
+    <h3 class="resto-name">{{resto.resto_name}}</h3>
+    <section class="dish-container">
+        <button id="dish-btn" value="{{resto.id}}">See Dishes</button>
     </section>
+    <script>
+        let dishBtn = document.querySelector('#dish-btn');
+        console.log(dishBtn);
+        console.log(dishBtn.value);
+
+        const testFunction = async (event) => {
+
+            const restoId = dishBtn.value;
+
+            //maybe add a conditional check here to make sure restoId is not null
+
+            const response = await fetch(`/api/dish/${restoId}`, {
+                method: 'GET',
+            });
+
+            if (response.ok) {
+                let token = response.json();
+
+                let dishContainer = document.querySelector('dish-container');
+
+                token.then(function (result) {
+                    console.log(result);
+
+                    dishBtn.style.display = "none";
+
+                    for (let i = 0; i < result.length; i++) {
+
+                        let container = document.querySelector('.dish-container');
+                        let section = document.createElement("section");
+                        section.classList.add('dishCard');
+
+                        let h1 = document.createElement('h1');
+                        let p = document.createElement('p');
+
+                        console.log(result[i].dish_name);
+                        section.append(result[i].dish_name, h1);
+
+                        console.log(result[i].dish_price);
+                        section.append(result[i].dish_price, p);
+
+                        container.append(section);
+
+
+                    }
+
+                });
+
+            } else {
+                console.log('route is not working ):');
+            }
+        }
+
+        dishBtn.addEventListener('click', testFunction);
+    </script>
 </section>
