@@ -44,19 +44,19 @@ app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
 
 // config server to use express.json(), express.urlencoded() & to serve static files from public dir
-  // so we can read all the JSON data that gets sent up to our server:
+// so we can read all the JSON data that gets sent up to our server:
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 // specify that all client-side code is living in public dir:
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Now let's set up Stripe; 
-  // the following is a function so we want to pass in our Stripe Key:
+// the following is a function so we want to pass in our Stripe Key:
 const stripe = require('stripe')(process.env.STRIPE_PRIVATE_KEY);
-  // set up store items; new map that contains all store items as obj w key value pairs. ITEMS AS BELOW IN JSON FILE STORED IN SERVER. must store securely in server b/c you dont want user to send the price, they could hack and make it 0
+// set up store items; new map that contains all store items as obj w key value pairs. ITEMS AS BELOW IN JSON FILE STORED IN SERVER. must store securely in server b/c you dont want user to send the price, they could hack and make it 0
 const storeItems = new Map([[
-  1, { priceInCents: 10000, name: 'ITEM1'}],
-  [2, { priceInCents: 20000, name: 'ITEM2'}],
+  1, { priceInCents: 10000, name: 'ITEM1' }],
+[2, { priceInCents: 20000, name: 'ITEM2' }],
 ])
 
 // add routed mod to server middleware
@@ -64,8 +64,8 @@ app.use(routes);
 
 // start server & sync db connection
 app.listen(PORT, () => {
-    console.log('Server now listening');
-    sequelize.sync({ force: false })
+  console.log('Server now listening');
+  sequelize.sync({ force: false })
 });
 
 // dish.findAll ... where, deliveryService is doordash, uber eats, map through that to create array. done by accessing whats in the db. set up to access everything in the db for when more items are added or changed
