@@ -23,6 +23,7 @@ header {
     display: flex;
     flex-wrap: wrap;
     background-color: var(--one);
+    
 }
 
 /* Logo & App Name Styling */
