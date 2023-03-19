@@ -8,7 +8,7 @@ const restoRoutes = require('./restoRoutes');
 const cartRoutes = require('./cartRoutes');
 // const checkoutRoutes = require('./checkoutRoutes');
 
-router.use('/api', apiRoutes);
+router.use('/', apiRoutes);
 router.use('/', homeRoutes);
 router.use('/search', searchRoutes);
 router.use('/resto', restoRoutes);
