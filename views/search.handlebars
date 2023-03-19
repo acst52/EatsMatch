@@ -18,29 +18,33 @@
             border-radius: 50px;
             padding: 10px;
         }
+
+        .resto-img {
+            max-width: 200px;
+            max-height: 200px;
+            width: auto;
+            height: auto;
+        }
     </style>
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
     <script>
         $(function () {
-            {{!-- $("#restoSearch").selectmenu();
+            // so here we want to init the selectmenu widget to refresh so it generates the dishes/restos dynamically.
+            $(function () {
+                $.get('/api/restos', function (restos) {
+                    const restoOptions = restos.map(resto => `<option value="${resto.id}">${resto.resto_name}</option>`).join('');
+                    $("#restoSearch").html(restoOptions).selectmenu('refresh');
+                });
 
-            $("#tagSearch").selectmenu(); --}}
-        // so here we want to init the selectmenu widget to refresh so it generates the dishes/restos dynamically.
-        $(function () {
-            $.get('/api/restos', function (restos) {
-                const restoOptions = restos.map(resto => `<option value="${resto.id}">${resto.resto_name}</option>`).join('');
-                $("#restoSearch").html(restoOptions).selectmenu('refresh');
-            });
+                $.get('/api/dishes', function (dishes) {
+                    const dishOptions = dishes.map(dish => `<option value="${dish.id}">${dish.dish_name}</option>`).join('');
+                    $("#tagSearch").html(dishOptions).selectmenu('refresh');
+                });
 
-            $.get('/api/dishes', function (dishes) {
-                const dishOptions = dishes.map(dish => `<option value="${dish.id}">${dish.dish_name}</option>`).join('');
-                $("#tagSearch").html(dishOptions).selectmenu('refresh');
-            });
-
-            $("#restoSearch").selectmenu();
-            $("#tagSearch").selectmenu();
-        })
+                $("#restoSearch").selectmenu();
+                $("#tagSearch").selectmenu();
+            })
         });
     </script>
 </head>
@@ -54,21 +58,62 @@
         <fieldset>
             <label for="restoSearch">SEARCH BY RESTAURANT</label>
             <select name="restoSearch" id="restoSearch">
-                {{!-- POPULATE DROPDOWNS WITH DATA FROM DB: each block to loop thru restos and dishes arrays, creating an option element for ea item. value attrib is set to id of resto or dish, displayed test = resto or dish name. --}}
+                {{!-- POPULATE DROPDOWNS WITH DATA FROM DB: each block to loop thru restos and dishes arrays, creating
+                an option element for ea item. value attrib is set to id of resto or dish, displayed test = resto or
+                dish name. --}}
                 {{#each restos}}
-                    <option value ="{{id}}">{{resto_name}}</option>
+                <option value="{{id}}">{{resto_name}}</option>
                 {{/each}}
             </select>
 
             <label for="tagSearch">SEARCH BY DISH</label>
             <select name="tagSearch" id="tagSearch">
                 {{#each dishes}}
-                    <option value ="{{id}}">{{dish_name}}</option>
+                <option value="{{id}}">{{dish_name}}</option>
                 {{/each}}
             </select>
 
         </fieldset>
     </form>
+
+    <button id="test-submit">test submit</button>
+
+    <section class="randResto">
+
+    </section>
+
+
+    <script>
+        //put this into an init() function and run when webpage loads
+        let testEl = document.querySelector('#restoSearch');
+        let testBtn = document.querySelector('#test-submit').addEventListener('click', (() => {
+            console.log(testEl.value);
+            let url = `/api/restos/${testEl.value}`;
+            console.log(url);
+            window.location.replace(url);
+        }));
+        //put this into a restoRender function and run when webpage loads
+        fetch('/api/restoCard')
+            .then((response) => response.json())
+            .then((data) => {
+                for (let i = 0; i < data.length; i++) {
+                    console.log(data[i].resto_name);
+                    console.log(data[i].resto_img);
+                    const randResto = document.querySelector('.randResto');
+                    const card = document.createElement('section');
+                    card.classList.add('restoCard');
+                    const h1 = document.createElement('h1');
+                    //need to turn img into a link
+                    const img = document.createElement('img');
+                    img.src = `${data[i].resto_img}`;
+                    img.classList.add('resto-img'); // ADDED THIS LINE TO APPLY THE CSS CLASS TO THE IMAGE SPECIFICALLY NOT THE CARD
+                    card.append(data[i].resto_name, h1);
+                    card.append(img);
+                    randResto.append(card);
+                }
+            });
+    </script>
+
 
 </section>
 
