@@ -1,18 +1,44 @@
 {{!-- this handlebar is used when user clicked on the a tag on resto list page, when a resto is clicked this page well be rendered and show all the dishes the resto has --}}
+<script>
+  $(function () {
+      $.get('/api/resto', function (resto) {
+          $("#restoName").html(resto.name);
+      });
 
-{{> header}}
-<h1>{{ resto.name }}</h1>
+      $.get('/api/dishes', function (dishes) {
+          $(".card-img-top").each(function(DishData) {
+              $(this).attr("src", dish.dish_img);
+              $(this).attr("alt", dish.name);
+          });
+          $(".card-title").each(function(index) {
+              $(this).html(dishes.name);
+          });
+          $(".card-text").each(function(index) {
+              $(this).html(dish.description);
+          });
+          $(".font-weight-bold").each(function(index) {
+              $(this).html(`${dish.dish_price}`);
+          });
+          $("input[name='dish_id']").each(function(index) {
+              $(this).attr("value", dish.id);
+          });
+      });
+  });
+</script>
+
+{{>header}}
+<h1 id="restoName"></h1>
 {{#if dishes}}
   <div class="card-deck">
     {{#each dishes}}
       <div class="card">
-        <img src="{{ imageUrl }}" class="card-img-top" alt="{{ name }}">
+        <img src="{{dish_img}}" class="card-img-top" alt="">
         <div class="card-body">
-          <h5 class="card-title">{{ name }}</h5>
-          <p class="card-text">{{ description }}</p>
-          <p class="card-text font-weight-bold">${{ price }}</p>
+          <h5 class="card-title">{{name}}</h5>
+          <p class="card-text">{{description}}</p>
+          <p class="card-text font-weight-bold">${{dish_price}}</p>
           <form action="/cart/add" method="post">
-            <input type="hidden" name="dish_id" value="{{ id }}">
+            <input type="hidden" name="dish_id" value="{{id}}">
             <button type="submit" class="btn btn-primary">Add to Cart</button>
           </form>
         </div>

@@ -1,10 +1,11 @@
 {{!-- similar layout as the restoMenu.hb --}}
-
+{{>header}}
+<h1 id="restoName">{{ resto_name }}</h1>
 {{#if dishes}}
   <div class="card-deck">
     {{#each dishes}}
       <div class="card">
-        <img src="{{ imageUrl }}" class="card-img-top" alt="{{ name }}">
+        <img src="{{ imageUrl }}" class="card-img-top" alt="{{ name }} image">
         <div class="card-body">
           <h5 class="card-title">{{ name }}</h5>
           <p class="card-text">{{ description }}</p>

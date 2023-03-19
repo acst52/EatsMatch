@@ -1,9 +1,9 @@
 const { Dish } = require('../models')
 
 const DishData = [
-        { dish_name: 'The Priest Burger', dish_price: 8.99, resto: 1 }, // dish_img: 'https://cdn.theburgerspriest.com/static_images/burgersPriest2x/1024x768/910007d1tbp.jpg?impolicy=imgopt&imwidth=450'
-        { dish_name: 'The Option Burger', dish_price: 10.99, resto: 1 }, // dish_img: 'https://cdn.theburgerspriest.com/static_images/burgersPriest2x/1024x768/910013d1tbp.jpg?impolicy=imgopt&imwidth=450'
-        { dish_name: 'Margherita Pizza', dish_price: 12.99, resto: 2 }, // dish_img: 'https://cdn.shopify.com/s/files/1/0205/9582/articles/20220211142347-margherita-9920_ba86be55-674e-4f35-8094-2067ab41a671.jpg?crop=center&height=915&v=1644590192&width=1200'
+        { dish_name: 'The Priest Burger', dish_price: 8.99, resto: 1,  dish_img: 'https://cdn.theburgerspriest.com/static_images/burgersPriest2x/1024x768/910007d1tbp.jpg?impolicy=imgopt&imwidth=450'},
+        { dish_name: 'The Option Burger', dish_price: 10.99, resto: 1 , dish_img: 'https://cdn.theburgerspriest.com/static_images/burgersPriest2x/1024x768/910013d1tbp.jpg?impolicy=imgopt&imwidth=450'},
+        { dish_name: 'Margherita Pizza', dish_price: 12.99, resto: 2 , dish_img: 'https://cdn.shopify.com/s/files/1/0205/9582/articles/20220211142347-margherita-9920_ba86be55-674e-4f35-8094-2067ab41a671.jpg?crop=center&height=915&v=1644590192&width=1200'},
         { dish_name: 'Fennel Sausage Pizza', dish_price: 14.99, resto: 2 }, // dish_img: 'https://assets.bonappetit.com/photos/5aa94eb56ed79626bc262c39/1:1/w_3332,h_3332,c_limit/cast-iron-pizza-with-fennel-and-sausage.jpg'
         { dish_name: 'Original Cheesecake', dish_price: 7.99, resto: 3 }, // dish_img: 'https://www.thecheesecakefactorybakery.com/assets/images/Bakery/products/specialty/original-cheesecake-slice-main.png'
         { dish_name: 'Oreo Dream Cheesecake', dish_price: 9.99, resto: 3 }, // dish_img: 'https://olo-images-live.imgix.net/6a/6ad164f8f1e74418809e66e0da4fad99.jpg?auto=format%2Ccompress&q=60&cs=tinysrgb&w=1200&h=800&fit=fill&fm=png32&bg=transparent&s=eba0332952087ca8bbca5f34403ecd0a'
