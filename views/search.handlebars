@@ -74,9 +74,14 @@
     </form>
     <button id="test-submit">test submit</button>
 
+    <section class="randResto">
+
+    </section>
+
 
     <script>
 
+        //put this into an init() function and run when webpage loads
         let testEl = document.querySelector('#restoSearch');
 
         let testBtn = document.querySelector('#test-submit').addEventListener('click', (() => {
@@ -90,6 +95,34 @@
             window.location.replace(url);
 
         }));
+
+        //put this into a restoRender function and run when webpage loads
+
+        fetch('/api/restoCard')
+            .then((response) => response.json())
+            .then((data) => {
+
+                for (let i = 0; i < data.length; i++) {
+
+                    console.log(data[i].resto_name);
+                    console.log(data[i].resto_img);
+
+                    const randResto = document.querySelector('.randResto');
+                    const card = document.createElement('section');
+                    card.classList.add('restoCard');
+                    const h1 = document.createElement('h1');
+
+                    //need to turn img into a link
+                    const img = document.createElement('img');
+
+                    img.src = `${data[i].resto_img}`
+
+                    card.append(data[i].resto_name, h1);
+                    card.append(img);
+
+                    randResto.append(card);
+                }
+            });
 
 
     </script>
