@@ -47,25 +47,24 @@
     <h2 id="searchHead">Save money, eat better:</h2>
 
     <form action="/search" method="get">
+  <fieldset>
+    <label for="restoSearch">SEARCH BY RESTAURANT</label>
+    <select name="restoSearch" id="restoSearch">
+      {{!-- POPULATE DROPDOWNS WITH DATA FROM DB --}}
+      {{#each restos}}
+      <option value ="{{id}}">{{resto_name}}</option>
+      {{/each}}
+    </select>
 
-        <fieldset>
-            <label for="restoSearch">SEARCH BY RESTAURANT</label>
-            <select name="restoSearch" id="restoSearch">
-                {{!-- POPULATE DROPDOWNS WITH DATA FROM DB: each block to loop thru restos and dishes arrays, creating an option element for ea item. value attrib is set to id of resto or dish, displayed test = resto or dish name. --}}
-                {{#each restos}}
-                    <option value ="{{id}}">{{resto_name}}</option>
-                {{/each}}
-            </select>
-
-            <label for="tagSearch">SEARCH BY DISH</label>
-            <select name="tagSearch" id="tagSearch">
-                {{#each dishes}}
-                    <option value ="{{id}}">{{dish_name}}</option>
-                {{/each}}
-            </select>
-
-        </fieldset>
-    </form>
+    <label for="tagSearch">SEARCH BY DISH</label>
+    <select name="tagSearch" id="tagSearch">
+      {{#each dishes}}
+      <option value ="{{id}}">{{dish_name}}</option>
+      {{/each}}
+    </select>
+  </fieldset>
+  <button type="submit">Submit</button>
+</form>
 
 </section>
 
