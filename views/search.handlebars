@@ -18,6 +18,13 @@
             border-radius: 50px;
             padding: 10px;
         }
+
+        .resto-img {
+            max-width: 200px;
+            max-height: 200px;
+            width: auto;
+            height: auto;
+        }
     </style>
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
@@ -98,7 +105,8 @@
                     const h1 = document.createElement('h1');
                     //need to turn img into a link
                     const img = document.createElement('img');
-                    img.src = `${data[i].resto_img}`
+                    img.src = `${data[i].resto_img}`;
+                    img.classList.add('resto-img'); // ADDED THIS LINE TO APPLY THE CSS CLASS TO THE IMAGE SPECIFICALLY NOT THE CARD
                     card.append(data[i].resto_name, h1);
                     card.append(img);
                     randResto.append(card);
