@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const { Resto, Dish } = require('../../models');
+const Sequelize = require('sequelize');
 
 // Get all restos
 router.get('/restos', async (req, res) => {
@@ -40,5 +41,20 @@ router.get('/dish/:id', async (req, res) => {
         res.status(500).json(error);
     }
 });
+
+//GET 4 random restos to generate resto cards on main page
+router.get('/restoCard', async (req, res) => {
+
+    try {
+
+        const restos = await Resto.findAll({ order: Sequelize.literal('rand()'), limit: 4 });
+
+        res.json(restos);
+
+    } catch (err) {
+        res.status(500).json(err)
+    }
+
+})
 
 module.exports = router;
