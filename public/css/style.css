@@ -193,6 +193,45 @@ label {
 }
 /* Media Queries for Desktop, Tablet, and Phone Screen Sizes */
 
+/* Large Desktop /
+@media (min-width: 1440px) {
+/ Styles for large desktop devices */
+.title {
+    font-size: 60px;
+    }
+    
+    
+    #logo-img {
+        height: 120px;
+    }
+    
+    nav {
+        font-size: 18px;
+    }
+    
+    a {
+        padding: 25px;
+    }
+    
+    main {
+        padding: 15px;
+    }
+    
+    .login-circle,
+    .signup-circle {
+        height: 600px;
+        width: 600px;
+    }
+    
+    #login-header,
+    #signup-header {
+        font-size: 60px;
+    }
+    
+    #searchHead {
+        font-size: 36px;
+    }
+
 /* Tablet /
 @media (max-width: 1024px) {
 / Styles for tablet devices */
