@@ -192,3 +192,89 @@ label {
 .dishCard {
     border: solid red 1px;
 }
+/* Media Queries for Desktop, Tablet, and Phone Screen Sizes */
+
+/* Tablet /
+@media (max-width: 1024px) {
+/ Styles for tablet devices */
+.title {
+    font-size: 40px;
+    }
+    
+    css
+    Copy code
+    #logo-img {
+        height: 80px;
+    }
+    
+    nav {
+        font-size: 14px;
+    }
+    
+    a {
+        padding: 15px;
+    }
+    
+    main {
+        padding: 5px;
+    }
+    
+    .login-circle,
+    .signup-circle {
+        height: 400px;
+        width: 400px;
+    }
+    
+    #login-header,
+    #signup-header {
+        font-size: 40px;
+    }
+    
+    #searchHead {
+        font-size: 24px;
+    }
+    
+    
+    /* Phone /
+    @media (max-width: 768px) {
+    / Styles for phone devices */
+    .title {
+    width: 100%;
+    font-size: 30px;
+    justify-content: center;
+    }
+    
+    css
+    Copy code
+    #logo-img {
+        height: 60px;
+    }
+    
+    nav {
+        width: 100%;
+        font-size: 12px;
+    }
+    
+    a {
+        padding: 10px;
+    }
+    
+    main {
+        padding: 2px;
+    }
+    
+    .login-circle,
+    .signup-circle {
+        height: 300px;
+        width: 300px;
+    }
+    
+    #login-header,
+    #signup-header {
+        font-size: 30px;
+    }
+    
+    #searchHead {
+        font-size: 18px;
+    }
+    
