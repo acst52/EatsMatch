@@ -38,7 +38,7 @@ header {
 }
 
 #logo-img {
-    height: 100px;
+    height: 180px;
 }
 
 #match {
@@ -219,7 +219,7 @@ header {
         width: 100%;
         justify-content: center;
         font-size: 18px;
-        
+        justify-content:space-evenly;
     }
     a {
         padding: 25px;
