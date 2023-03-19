@@ -1,7 +1,7 @@
 const { Resto } = require('../models');
 
 const RestoData = [
-	 {
+    {
         resto_name: "Burger's Priest", // resto # 1
         delivery_service: 1, // 1 2 or 3, 3=both
         resto_promo_dd: '0',
