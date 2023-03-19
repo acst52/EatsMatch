@@ -2,7 +2,7 @@ const router = require('express').Router();
 const { Resto, Dish } = require('../../models');
 
 // Get all restos
-router.get('/api/restos', async (req, res) => {
+router.get('/restos', async (req, res) => {
     const restos = await Resto.findAll();
     res.json(restos.map((resto) => resto.toJSON()));
 });
@@ -18,7 +18,7 @@ router.get('/resto', async (req, res) => {
 });
   
 // Get all dishes
-router.get('/api/dishes', async (req, res) => {
+router.get('/dishes', async (req, res) => {
     const dishes = await Dish.findAll();
     res.json(dishes.map((dish) => dish.toJSON()));
 });
