@@ -179,3 +179,15 @@ label {
 .signup-circle {
     margin-top: 20px;
 }
+
+/* Resto Page Styling */
+
+.resto-container {
+    border: solid blue 1px;
+    width: 100%;
+    height: 100vh;
+}
+
+.dishCard {
+    border: solid red 1px;
+}
