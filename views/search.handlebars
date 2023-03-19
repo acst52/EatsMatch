@@ -51,21 +51,61 @@
         <fieldset>
             <label for="restoSearch">SEARCH BY RESTAURANT</label>
             <select name="restoSearch" id="restoSearch">
-                {{!-- POPULATE DROPDOWNS WITH DATA FROM DB: each block to loop thru restos and dishes arrays, creating an option element for ea item. value attrib is set to id of resto or dish, displayed test = resto or dish name. --}}
+                {{!-- POPULATE DROPDOWNS WITH DATA FROM DB: each block to loop thru restos and dishes arrays, creating
+                an option element for ea item. value attrib is set to id of resto or dish, displayed test = resto or
+                dish name. --}}
                 {{#each restos}}
-                    <option value ="{{id}}">{{resto_name}}</option>
+                <option value="{{id}}">{{resto_name}}</option>
                 {{/each}}
             </select>
 
             <label for="tagSearch">SEARCH BY DISH</label>
             <select name="tagSearch" id="tagSearch">
                 {{#each dishes}}
-                    <option value ="{{id}}">{{dish_name}}</option>
+                <option value="{{id}}">{{dish_name}}</option>
                 {{/each}}
             </select>
 
         </fieldset>
     </form>
+
+    <button id="test-submit">test submit</button>
+
+    <section class="randResto">
+
+    </section>
+
+
+    <script>
+        //put this into an init() function and run when webpage loads
+        let testEl = document.querySelector('#restoSearch');
+        let testBtn = document.querySelector('#test-submit').addEventListener('click', (() => {
+            console.log(testEl.value);
+            let url = `/api/restos/${testEl.value}`;
+            console.log(url);
+            window.location.replace(url);
+        }));
+        //put this into a restoRender function and run when webpage loads
+        fetch('/api/restoCard')
+            .then((response) => response.json())
+            .then((data) => {
+                for (let i = 0; i < data.length; i++) {
+                    console.log(data[i].resto_name);
+                    console.log(data[i].resto_img);
+                    const randResto = document.querySelector('.randResto');
+                    const card = document.createElement('section');
+                    card.classList.add('restoCard');
+                    const h1 = document.createElement('h1');
+                    //need to turn img into a link
+                    const img = document.createElement('img');
+                    img.src = `${data[i].resto_img}`
+                    card.append(data[i].resto_name, h1);
+                    card.append(img);
+                    randResto.append(card);
+                }
+            });
+    </script>
+
 
 </section>
 
