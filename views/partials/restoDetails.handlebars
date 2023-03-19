@@ -1,11 +1,13 @@
 {{!-- An example for a restaurant or menu item card partial adapted from class notes --}}
-
+<head>
+  <link rel="stylesheet" href="../../public/css/style.css">
+</head>
 <section class="card">
   <!-- The contents of this card link to the restaurant page using the resto ID -->
   <a href="/resto/{{id}}">
     <!-- The card contains the resto name as the card header -->
     <header>{{name}}</header>
     <!-- The card contains the first image of the resto -->
-    <img src="/images/{{foodImg.[0].filename}}" alt="{{foodImg.[0].description}}">
+    <img class ="resto-img" src="/images/{{foodImg.[0].filename}}" alt="{{foodImg.[0].description}}">
   </a>
 </section>
