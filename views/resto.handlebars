@@ -33,6 +33,9 @@
                         let container = document.querySelector('.dish-container');
                         let section = document.createElement("section");
                         section.classList.add('dishCard');
+                        let addCartBtn = document.createElement("button");
+                        addCartBtn.classList.add('addToCart');
+                        addCartBtn.innerText = 'Add to Cart';
 
                         let h1 = document.createElement('h1');
                         let p = document.createElement('p');
@@ -43,8 +46,9 @@
                         console.log(result[i].dish_price);
                         section.append(result[i].dish_price, p);
 
-                        container.append(section);
+                        section.append(addCartBtn);
 
+                        container.append(section);
 
                     }
 
