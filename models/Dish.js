@@ -25,10 +25,10 @@ Dish.init({
       key: "id"
     },
   },
-  dish_img: {
-    type: DataTypes.STRING,
-    allowNull: false
-  }
+  // dish_img: {
+  //   type: DataTypes.STRING,
+  //   allowNull: false
+  // }
 },
   { sequelize });
 

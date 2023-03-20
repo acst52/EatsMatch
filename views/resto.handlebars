@@ -3,14 +3,59 @@
     <h3 class="resto-name">{{resto.resto_name}}</h3>
     <img src="{{resto.resto_img}}" id="restoImg">
     <section class="dish-container">
-        {{!-- <button id="dish-btn" value="{{resto.id}}">VIEW DISHES</button> --}}
-        {{#each dishes}}
-            <h4 id="dish-name" value="{{dish_name}}">{{dish_name}}</h4>
-            <img src="{{dish_img}}" />
-            <p id="dish-price" value="{{dish_price}}">{{dish_price}}</p>
-            <button class="add-button">Add to Cart</button>
-        {{/each}}
+        <button id="dish-btn" value="{{resto.id}}">VIEW DISHES</button>
+
+        <script src="/js/cart.js"></script>
+        <script>
+            let dishBtn = document.querySelector('#dish-btn');
+            console.log(dishBtn);
+            console.log(dishBtn.value);
+            const viewDish = async (event) => {
+                const restoId = dishBtn.value;
+                //maybe add a conditional check here to make sure restoId is not null
+                const response = await fetch(`/api/dish/${restoId}`, {
+                    method: 'GET',
+                });
+                if (response.ok) {
+                    let token = response.json();
+                    let dishContainer = document.querySelector('dish-container');
+                    token.then(function (result) {
+                        console.log(result);
+                        dishBtn.style.display = "none";
+                        for (let i = 0; i < result.length; i++) {
+                            let container = document.querySelector('.dish-container');
+                            let section = document.createElement("section");
+                            section.classList.add('dishCard');
+
+
+                            console.log(result[i].dish_name);
+                            let h1 = document.createElement('h1');
+                            h1.innerText = result[i].dish_name
+                            h1.value = result[i].dish_name
+                            section.append(h1);
+
+                            console.log(result[i].dish_price);
+                            let p = document.createElement('p');
+                            p.innerText = `$${result[i].dish_price}`
+                            p.value = `${result[i].dish_price}`
+                            section.append(p);
+
+                            let addCartBtn = document.createElement("button");
+                            addCartBtn.classList.add('addToCart');
+                            addCartBtn.innerText = 'Add to Cart';
+                            addCartBtn.addEventListener('click', addToCartHandler);
+                            section.append(addCartBtn);
+
+                            container.append(section);
+                        }
+                    });
+                } else {
+                    console.log('route is not working ):');
+                }
+            }
+            dishBtn.addEventListener('click', viewDish);
+        </script>
+
     </section>
 
-    <script src="/js/cart.js"></script> 
 </section>
