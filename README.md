@@ -23,6 +23,7 @@ npm i
 
 ## Usage
 
+<<<<<<< HEAD
 To use EatsMatch, simply visit us here: [HEROKU LINK HERE]. You will then be able to add your favorite dishes from local restaurants to your cart, and checkout at the right price across delivery services.
 
 [SCREEN SNIPS HERE]
@@ -49,6 +50,32 @@ Fork the repository by clicking the "Fork" button on the top right corner of the
 Clone your forked repository to your local machine: git clone <https://github.com/acst52/EatsMatch.git>
 Add the original repository as a remote to your local repository: git remote add upstream <https://github.com/acst52/EatsMatch.git>
 
+=======
+To use EatsMatch, simply visit us here: <HEROKU LINK>. You will then be able to add your favorite dishes from local restaurants to your cart, and checkout at the right price across delivery services.
+
+## License
+
+This project is licensed under the MIT license.
+
+## Contributing
+
+### Contribution Guidelines
+
+Thank you for considering contributing to our project! We welcome and appreciate your help. Please follow these guidelines to make the contribution process smooth and efficient for everyone involved.
+
+1. Code of Conduct
+All contributors are expected to adhere to our Code of Conduct. By participating, you agree to maintain a respectful and inclusive environment.
+
+2. Prerequisites
+Familiarity with Git and GitHub
+Basic knowledge of JavaScript, MySQL
+
+3. Getting Started
+Fork the repository by clicking the "Fork" button on the top right corner of the main repository page.
+Clone your forked repository to your local machine: git clone https://github.com/acst52/EatsMatch.git
+Add the original repository as a remote to your local repository: git remote add upstream https://github.com/acst52/EatsMatch.git
+
+>>>>>>> a0bbe594a89b750e3ded8e56148dde527b8b7d4d
 4. Branching
 Create a new branch for each feature or bug fix you work on. Use the following naming convention for branches:
 
@@ -90,6 +117,12 @@ npm test
 
 ## Questions
 
+<<<<<<< HEAD
 If you have any questions about this project, you can contact us. Please see CONTRIBUTORS.md for details or [email](mailto:acst52@gmail.com).
 
 You can find more of our work at [acst52](https://github.com/acst52/) / [Haozhe-H](https://github.com/Haozhe-H) / [rnvshi](https://github.com/rnvshi) / [MaximosSarmpas](https://github.com/MaximosSarmpas) / [Musadaq23](https://github.com/Musadaq23).
+=======
+If you have any questions about this project, you can contact us at acst52@gmail.com / ADD EMAILS.
+
+You can find more of our work at [acst52](https://github.com/acst52/) / ADD PROFILES.
+>>>>>>> a0bbe594a89b750e3ded8e56148dde527b8b7d4d
