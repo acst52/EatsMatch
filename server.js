@@ -57,10 +57,12 @@ const stripe = require('stripe')(process.env.STRIPE_PRIVATE_KEY);
 
 // import model or copy & paste.. for loop through it & put each index into store items thing
   // for loop dish_price[i]*100, same for name, loop thru dish data and then look up how to add this to Map
-const storeItems = new Map([[
-  1, { priceInCents: dish_price*100, name: dish_name }],
-[2, { priceInCents: 20000, name: 'ITEM2' }],
-])
+// const Dish = require('./Dish');
+
+// const storeItems = new Map([[
+//   1, { priceInCents: dish_price*100, name: dish_name }],
+// [2, { priceInCents: 20000, name: 'ITEM2' }],
+// ])
 
 // add routed mod to server middleware
 app.use(routes);
