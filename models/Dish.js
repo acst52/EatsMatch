@@ -28,7 +28,7 @@ Dish.init({
   // dish_img: {
   //   type: DataTypes.STRING,
   //   allowNull: false
-  // },
+  // }
 },
   { sequelize });
 

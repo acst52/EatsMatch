@@ -12,7 +12,7 @@ router.use('/', apiRoutes);
 router.use('/', homeRoutes);
 router.use('/search', searchRoutes);
 router.use('/resto', restoRoutes);
-router.use('/cart', cartRoutes);
+router.use('/', cartRoutes);
 // router.use('/checkout', checkoutRoutes);
 
 module.exports = router;

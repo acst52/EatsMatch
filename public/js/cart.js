@@ -1,9 +1,10 @@
-const addToCartHandler = async function(event) {
-    event.preventDefault();
-    const dishName = this.siblings('#dish-name').attr('value');
-    const dishPrice = this.siblings('#dish-price').attr('value');
-    console.log(dishName, dishPrice);
+const addToCartHandler = async function (event) {
 
+    console.log('this has been clicked');
+    const dishPrice = this.previousSibling.value;
+    const dishName = this.parentElement.firstElementChild.value;
+
+    console.log(dishName, dishPrice);
 
     await fetch('/cart/add', {
         method: 'POST',
@@ -13,7 +14,8 @@ const addToCartHandler = async function(event) {
         headers: {
             'Content-Type': 'application/json',
         }
-    }); // add here: add to cart w/ session
+    });
+    // add here: add to cart w/ session
 }
 
 document.querySelector('.add-button').addEventListener('click', addToCartHandler);
