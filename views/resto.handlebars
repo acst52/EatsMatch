@@ -1,8 +1,11 @@
 <section class="resto-container">
+    <h3 id="resto-msg">WELCOME TO</h3>
     <h3 class="resto-name">{{resto.resto_name}}</h3>
+    <img src="{{resto.resto_img}}" id="restoImg">
     <section class="dish-container">
-        <button id="dish-btn" value="{{resto.id}}">See Dishes</button>
+        <button id="dish-btn" value="{{resto.id}}">VIEW DISHES</button>
     </section>
+
     <script>
         let dishBtn = document.querySelector('#dish-btn');
         console.log(dishBtn);
@@ -44,7 +47,7 @@
                         section.append(result[i].dish_name, h1);
 
                         console.log(result[i].dish_price);
-                        section.append(result[i].dish_price, p);
+                        section.append(`$${result[i].dish_price}`, p);
 
                         section.append(addCartBtn);
 
