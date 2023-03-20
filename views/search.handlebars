@@ -65,8 +65,8 @@
         let searchBar = document.querySelector('#restoSearch');
         let searchBtn = document.querySelector('#submit-search').addEventListener('click', (() => {
 
-            let url = `/api/restos/${searchBtn.value}`;
-            console.log(url);
+            let url = `/api/restos/${searchBar.value}`;
+
             window.location.replace(url);
         }));
         //put this into a restoRender function and run when webpage loads
