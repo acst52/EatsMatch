@@ -267,6 +267,7 @@ label {
     font-family: 'Merriweather';
     text-align: center;
     color: var(--two);
+    margin: 10px;
 }
 
 #restoImg {
