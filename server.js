@@ -54,8 +54,11 @@ app.use(express.static(path.join(__dirname, 'public')));
 // the following is a function so we want to pass in our Stripe Key:
 const stripe = require('stripe')(process.env.STRIPE_PRIVATE_KEY);
 // set up store items; new map that contains all store items as obj w key value pairs. ITEMS AS BELOW IN JSON FILE STORED IN SERVER. must store securely in server b/c you dont want user to send the price, they could hack and make it 0
+
+// import model or copy & paste.. for loop through it & put each index into store items thing
+  // for loop dish_price[i]*100, same for name, loop thru dish data and then look up how to add this to Map
 const storeItems = new Map([[
-  1, { priceInCents: 10000, name: 'ITEM1' }],
+  1, { priceInCents: dish_price*100, name: dish_name }],
 [2, { priceInCents: 20000, name: 'ITEM2' }],
 ])
 
