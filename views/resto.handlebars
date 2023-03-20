@@ -5,11 +5,19 @@
     <section class="dish-container">
         <button id="dish-btn" value="{{resto.id}}">VIEW DISHES</button>
 
+        <div id="success-modal" class="modal" style="display: none;">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <p id="success-message"></p>
+            </div>
+        </div>
+
         <script src="/js/cart.js"></script>
         <script>
             let dishBtn = document.querySelector('#dish-btn');
             console.log(dishBtn);
             console.log(dishBtn.value);
+
             const viewDish = async (event) => {
                 const restoId = dishBtn.value;
                 //maybe add a conditional check here to make sure restoId is not null

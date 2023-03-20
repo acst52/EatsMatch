@@ -15,7 +15,23 @@ const addToCartHandler = async function (event) {
             'Content-Type': 'application/json',
         }
     });
+
+    successMsg.textContent = `Added to cart!`;
+    successModal.style.display = 'block'
     // add here: add to cart w/ session
 }
 
-document.querySelector('.add-button').addEventListener('click', addToCartHandler);
+const successModal = document.getElementById('success-modal');
+const successMsg = document.getElementById('success-message');
+const closeBtn = document.querySelector('.close');
+
+closeBtn.addEventListener('click', () => {
+    successModal.style.display = 'none';
+});
+window.addEventListener('click', (event) => {
+    if (event.target === successModal) {
+        successModal.style.display = 'none';
+    }
+});
+
+// document.querySelector('.add-button').addEventListener('click', addToCartHandler);
