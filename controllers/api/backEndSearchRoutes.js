@@ -10,12 +10,14 @@ router.get('/restos', async (req, res) => {
 
 // Get resto data to render on localhost:3001/api/resto
 router.get('/restos/:id', async (req, res) => {
+
     try {
         const restos = await Resto.findByPk(req.params.id);
 
         const resto = restos.get({ plain: true });
 
-        res.render('resto', { resto });
+        res.render('resto', { resto, logged_in: req.session.logged_in });
+
     } catch (error) {
         res.status(500).json(error);
     }

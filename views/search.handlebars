@@ -13,18 +13,6 @@
         .overflow {
             height: 200px;
         }
-
-        .ui-selectmenu-button {
-            border-radius: 50px;
-            padding: 10px;
-        }
-
-        .resto-img {
-            max-width: 200px;
-            max-height: 200px;
-            width: auto;
-            height: auto;
-        }
     </style>
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
@@ -37,13 +25,8 @@
                     $("#restoSearch").html(restoOptions).selectmenu('refresh');
                 });
 
-                $.get('/api/dishes', function (dishes) {
-                    const dishOptions = dishes.map(dish => `<option value="${dish.id}">${dish.dish_name}</option>`).join('');
-                    $("#tagSearch").html(dishOptions).selectmenu('refresh');
-                });
-
                 $("#restoSearch").selectmenu();
-                $("#tagSearch").selectmenu();
+
             })
         });
     </script>
@@ -53,7 +36,7 @@
 
     <h2 id="searchHead">Save money, eat better:</h2>
 
-    <form action="/search" method="get">
+    <form>
 
         <fieldset>
             <label for="restoSearch">SEARCH BY RESTAURANT</label>
@@ -66,30 +49,24 @@
                 {{/each}}
             </select>
 
-            <label for="tagSearch">SEARCH BY DISH</label>
-            <select name="tagSearch" id="tagSearch">
-                {{#each dishes}}
-                <option value="{{id}}">{{dish_name}}</option>
-                {{/each}}
-            </select>
-
         </fieldset>
     </form>
 
-    <button id="test-submit">test submit</button>
+    <button id="submit-search">SEARCH</button>
+
+    <h1 id="randMsg"><i>OR, CHOOSE FROM ONE BELOW</i></h1>
 
     <section class="randResto">
-
     </section>
 
 
     <script>
         //put this into an init() function and run when webpage loads
-        let testEl = document.querySelector('#restoSearch');
-        let testBtn = document.querySelector('#test-submit').addEventListener('click', (() => {
-            console.log(testEl.value);
-            let url = `/api/restos/${testEl.value}`;
-            console.log(url);
+        let searchBar = document.querySelector('#restoSearch');
+        let searchBtn = document.querySelector('#submit-search').addEventListener('click', (() => {
+
+            let url = `/api/restos/${searchBar.value}`;
+
             window.location.replace(url);
         }));
         //put this into a restoRender function and run when webpage loads
@@ -107,9 +84,16 @@
                     const img = document.createElement('img');
                     img.src = `${data[i].resto_img}`;
                     img.classList.add('resto-img'); // ADDED THIS LINE TO APPLY THE CSS CLASS TO THE IMAGE SPECIFICALLY NOT THE CARD
-                    card.append(data[i].resto_name, h1);
+                    img.classList.add(`${data[i].id}`);
+
+                    card.onclick = function () {
+                        window.location.replace(`api/restos/${data[i].id}`);
+                    };
+
+                    card.append(data[i].resto_name.toUpperCase(), h1);
                     card.append(img);
                     randResto.append(card);
+
                 }
             });
     </script>
