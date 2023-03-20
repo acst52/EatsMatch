@@ -43,7 +43,16 @@
                         console.log(result[i].dish_price);
                         section.append(result[i].dish_price, p);
 
-                        container.append(section);
+                        //container.append(section);
+
+                        let btn = document.createElement('button')
+                        btn.textContent = 'Add to cart test'
+                        btn.addEventListener('click', () => {
+                            // Do something when the button is clicked, like add the dish to the cart
+                            console.log(`Added ${result[i].dish_name} to cart`);
+                        });
+                        section.append(btn);
+
 
 
                     }
