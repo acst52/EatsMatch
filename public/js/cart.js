@@ -6,7 +6,7 @@ const addToCartHandler = async function (event) { // idk what event is for here
 
     console.log(dishName, dishPrice);
 
-    await fetch('/cart/add', {
+    await fetch('/api/cart/add', {
         method: 'POST',
         body: JSON.stringify({
             dishName, dishPrice

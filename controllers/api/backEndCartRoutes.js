@@ -4,7 +4,7 @@ const withAuth = require('../../utils/auth');
 
 // 5. POST /cart/:id --> this route should handle form subission from menu pg & add selected itrm to user's cart. in this route, use session or cookies to store the user's cart data and redirect user to their cart pg. make sure user auth to be able to add to cart. if user not, redir to login/signup pg
 
-router.post('/cart/add', withAuth, async (req, res) => {
+router.post('/cart/add/:id', withAuth, async (req, res) => {
     const { dish_id } = req.body;
     try {
         const dish = await Dish.findByPk(dish_id);
