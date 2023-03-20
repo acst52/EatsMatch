@@ -1,5 +1,5 @@
 <section class="resto-container">
-    <h3 id="resto-msg">Welcome To</h3>
+    <h3 id="resto-msg">WELCOME TO</h3>
     <h3 class="resto-name">{{resto.resto_name}}</h3>
     <img src="{{resto.resto_img}}" id="restoImg">
     <section class="dish-container">
@@ -38,7 +38,7 @@
 
                             console.log(result[i].dish_name);
                             let h1 = document.createElement('h1');
-                            h1.innerText = result[i].dish_name
+                            h1.innerText = result[i].dish_name.toUpperCase();
                             h1.value = result[i].dish_name
                             section.append(h1);
 

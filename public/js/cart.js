@@ -35,3 +35,4 @@ window.addEventListener('click', (event) => {
 });
 
 // document.querySelector('.add-button').addEventListener('click', addToCartHandler);
+document.querySelector('.add-button').addEventListener('click', addToCartHandler);
