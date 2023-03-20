@@ -64,7 +64,7 @@
         //put this into an init() function and run when webpage loads
         let searchBar = document.querySelector('#restoSearch');
         let searchBtn = document.querySelector('#submit-search').addEventListener('click', (() => {
-            console.log(testEl.value);
+
             let url = `/api/restos/${searchBtn.value}`;
             console.log(url);
             window.location.replace(url);
