@@ -403,6 +403,15 @@ main {
     .signup-btn {
         width: 80%;
     }
+     #restoImg {
+        
+        height:80%;
+        width:80%;
+        justify-content: center;
+        align-items: center;
+        margin-left: auto;
+        margin-right: auto;
+    }
 }
 
 @media screen and (max-width: 480px) {
@@ -449,5 +458,14 @@ main {
     .login-btn,
     .signup-btn {
         width: 90%;
+    }
+     #restoImg {
+        
+        height:60%;
+        width:60%;
+        justify-content: center;
+        align-items: center;
+        margin-left: auto;
+        margin-right: auto;
     }
 }
