@@ -8,9 +8,10 @@ router.post('/cart/add', withAuth, async (req, res) => {
     const { dish_id } = req.body;
     try {
         const dish = await Dish.findByPk(dish_id);
-        // console.log(dish);
         const user_id = req.session.user_id
 
+
+        // this code is not working, 500
         let cartItem = await Cart.findOne({where: { dish_id, user_id }})
         if (cartItem) {
             cartItem.quantity += 1;
@@ -18,10 +19,12 @@ router.post('/cart/add', withAuth, async (req, res) => {
         } else {
             cartItem = await Cart.create({
               dish_id: dish.id,
-              user_id,
+              user_id: req.session.user_id,
               quantity: 1,
             });
         }
+
+        // this following code works but create new addToCart obj each time
         // const addToCart = await Cart.create({
         //     dish_id: dish.id,
         //     user_id: req.session.user_id,
