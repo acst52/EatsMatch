@@ -59,6 +59,7 @@ router.get('/cart', withAuth, async (req, res) => {
             totalPrice
         });
     } catch (error) {
+        // console.log(error);
         res.status(500).send('Cannot load your cart. Server error.');
     }
 });
