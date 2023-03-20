@@ -8,14 +8,29 @@ router.post('/cart/add', withAuth, async (req, res) => {
     const { dish_id } = req.body;
     try {
         const dish = await Dish.findByPk(dish_id);
-        const addToCart = await Cart.create({
-            dish_id: dish.id,
-            user_id: req.session.user_id,
-            quantity: 1 // default quant to addToCart is 1
-        });
+        // console.log(dish);
+        const user_id = req.session.user_id
 
+        let cartItem = await Cart.findOne({where: { dish_id, user_id }})
+        if (cartItem) {
+            cartItem.quantity += 1;
+            await cartItem.save();
+        } else {
+            cartItem = await Cart.create({
+              dish_id: dish.id,
+              user_id,
+              quantity: 1,
+            });
+        }
+        // const addToCart = await Cart.create({
+        //     dish_id: dish.id,
+        //     user_id: req.session.user_id,
+        //     quantity: 1 // default quant to addToCart is 1
+        // });
+
+        // console.log(addToCart);
         // return updated cart item as JSON
-        return res.status(200).json({ addToCart });
+        return res.status(200).json({ cartItem });
     } catch (error) {
         res.status(500).json({ error: 'Server error - unable to add to cart' });
     }

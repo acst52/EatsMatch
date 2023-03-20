@@ -3,6 +3,15 @@
     <section class="dish-container">
         <button id="dish-btn" value="{{resto.id}}">See Dishes</button>
     </section>
+
+    <div id="success-modal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <p id="success-message"></p>
+        </div>
+    </div>
+
+
     <script>
         let dishBtn = document.querySelector('#dish-btn');
         console.log(dishBtn);
@@ -47,12 +56,43 @@
 
                         let btn = document.createElement('button')
                         btn.textContent = 'Add to cart test'
-                        btn.addEventListener('click', () => {
-                            // Do something when the button is clicked, like add the dish to the cart
-                            console.log(`Added ${result[i].dish_name} to cart`);
-                        });
-                        section.append(btn);
+                        btn.dataset.dishId = result[i].id
 
+                        console.log(btn.dataset.dishId)
+
+                        const successModal = document.getElementById('success-modal');
+                        const successMsg = document.getElementById('success-message');
+                        const closeBtn = document.querySelector('.close');
+
+                        btn.addEventListener('click', async () => {
+                            const dish_id = btn.dataset.dishId;
+                            const response = await fetch('/cart/add', {
+                                method: 'POST',
+                                headers: {
+                                'Content-Type': 'application/json'
+                                },
+                                body: JSON.stringify({ dish_id })
+                            });
+                            const data = await response.json();
+
+                            console.log(data)
+                            
+                            successMsg.textContent = `Added ${result[i].dish_name} to cart!`;
+                            successModal.style.display = 'block'
+                        });
+
+                        section.append(btn);
+                        container.append(section)
+
+                        closeBtn.addEventListener('click', () => {
+                            successModal.style.display = 'none';
+                        });
+
+                        window.addEventListener('click', (event) => {
+                            if (event.target === successModal) {
+                                successModal.style.display = 'none';
+                            }
+                        });
 
 
                     }
@@ -65,5 +105,8 @@
         }
 
         dishBtn.addEventListener('click', testFunction);
+
+        
+
     </script>
 </section>
