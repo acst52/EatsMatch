@@ -1,52 +1,95 @@
 # EatsMatch
+![license badge](https://img.shields.io/badge/license-MIT-brightgreen)
 
-## GIT FLOW
+## Description
 
-*PULL BEFORE YOU START WORKING!! Added a whole function? Taking a break? Time to push your work!*
+Our web app, EatsMatch, is the place to go to save money when ordering in. No need to search through all the services to find the best price and coupon codes - EatsMatch allows users to compare food delivery prices from different services, such as UberEats and DoorDash, and automatically tells them where the price is right.
 
-#### To facilitate pulling and pushing from the develop branch, clone the repo and checkout the develop branch as the current working branch --> [git clone -b develop <repo-url>]
+## Table of Contents
 
-#### Pull changes from the develop branch before pushing --> [git pull origin develop]*
+* [Installation](#installation)
+* [Usage](#usage)
+* [License](#license)
+* [Contributing](#contributing)
+* [Tests](#tests)
+* [Questions](#questions)
 
-**note*: if you get the error message "your local changes will be overwritten by merge: file.name; please commit your changes or stash them before you merge", [git checkout -b feature/my-feature develop] your changes to your feature branch or [git stash; git pull origin develop; git stash apply] them, then you can do a [git pull origin develop] to get the latest working code.
+## Installation
 
-#### Push changes to your feature branch off of develop --> [git checkout -b feature/my-feature develop]
+To install necessary dependencies, run the following command: 
+```
+npm i
+```
 
-#### Make changes on your feature branch, commit them locally
+## Usage
 
-- [git status] to make sure you're on your feature branch
-- [git add .]
-- [git commit -m "Added/worked on new feature"]
-- [git push -u origin feature/my-feature]
+To use EatsMatch, simply visit us here: [HEROKU LINK HERE]. You will then be able to add your favorite dishes from local restaurants to your cart, and checkout at the right price across delivery services.
 
-Once your feature is ready for develop, create a merge (pull) request! This way, the develop branch will always contain the latest changes that have been approved by 2 teammates and merged from feature branches.
+[SCREEN SNIPS HERE]
 
-**********
+## License
 
-## STEPS TO CREATE & SEED DB, THEN START SERVER
+This project is licensed under the MIT license.
 
-- create env file with your db name, user and pw variables
-- install dependencies; in terminal: [npm i]
-- create the db schema: [npm run schema]
-- seed the dev db w test data: [npm run seed]
-- start the server: [npm start]
+## Contributing
 
-**********
+### Contribution Guidelines
 
-## DEPLOYING FINISHED GITHUB PROJECT ON HEROKU - STEPS
+Thank you for considering contributing to our project! We welcome and appreciate your help. Please follow these guidelines to make the contribution process smooth and efficient for everyone involved.
 
-1. make sure all your files are in main. Move contents of develop dir into main if needed.
-    - Similarly to how GitHub needs an index file in main, Heroku needs server.js in main to deploy!
-2. make sure all dependencies installed (incl [npm i -g heroku] if not yet done;
-    - [heroku --version] should show version after you install).
-3. make sure working tree clean: [git add .] / [git commit -m "msg"] / [git push origin main]
-4. [heroku auth:login]
-5. [heroku create]
-6. [git remote -v] --> SHOULD SEE 4 LINKS (fetch & push for origin and heroku)
-7. [git push heroku main]
-8. [heroku open] --> deploys your project @ random link generated w/ heroku create!
-9. IF YOU MAKE CHANGES YOU WANT DEPLOYED: repeat steps 3, 4, 7
+1. Code of Conduct
+All contributors are expected to adhere to our Code of Conduct. By participating, you agree to maintain a respectful and inclusive environment.
 
-**********
+2. Prerequisites
+Familiarity with Git and GitHub
+Basic knowledge of JavaScript, MySQL
 
-**let the team know if you need git revert instructions or want a second pair of eyes to deal with conflicts**
+3. Getting Started
+Fork the repository by clicking the "Fork" button on the top right corner of the main repository page.
+Clone your forked repository to your local machine: git clone <https://github.com/acst52/EatsMatch.git>
+Add the original repository as a remote to your local repository: git remote add upstream <https://github.com/acst52/EatsMatch.git>
+
+4. Branching
+Create a new branch for each feature or bug fix you work on. Use the following naming convention for branches:
+
+For features: feature/short-feature-description
+For bug fixes: bugfix/short-bugfix-description
+
+5. Development Environment
+Install the required dependencies: npm i
+
+6. Commit Messages
+Write clear and concise commit messages describing the changes made. Use the imperative mood.
+
+7. Submitting a Pull Request
+Fetch the latest changes from the original repository: git fetch upstream
+Rebase your branch on the latest main branch: git rebase upstream/main
+Push your changes to your fork: git push origin your-branch-name
+Open a pull request on GitHub, providing a clear description of your changes and any additional context.
+
+8. Issue Reporting
+Before reporting a bug or requesting a new feature, search the existing issues to avoid duplicates. When creating a new issue, follow the provided issue template.
+
+9. Review Process
+Pull requests will be reviewed by maintainers and/or other contributors. Address any requested changes and maintain a respectful and constructive tone during the review process.
+
+10. Contributor Recognition
+Contributors will be recognized in the CONTRIBUTORS.md file and in the project's documentation.
+
+11. Communication
+Join our chat room or forum (links provided in README) to ask questions and discuss the project.
+
+Thank you for contributing! We look forward to working together to improve this project.
+
+## Tests
+
+To perform tests, run the following command: 
+```
+npm test
+```
+
+## Questions
+
+If you have any questions about this project, you can contact us. Please see CONTRIBUTORS.md for details or [email](mailto:acst52@gmail.com).
+
+You can find more of our work at [acst52](https://github.com/acst52/) / [Haozhe-H](https://github.com/Haozhe-H) / [rnvshi](https://github.com/rnvshi) / [MaximosSarmpas](https://github.com/MaximosSarmpas) / [Musadaq23](https://github.com/Musadaq23).
