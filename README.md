@@ -23,7 +23,7 @@ npm i
 
 ## Usage
 
-To use EatsMatch, simply visit us here: (EatsMatch)[https://calm-brook-30132.herokuapp.com/]. You will then be able to add your favorite dishes from local restaurants to your cart, and checkout at the right price across delivery services.
+To use EatsMatch, simply visit us here: [EatsMatch](https://calm-brook-30132.herokuapp.com/). You will then be able to add your favorite dishes from local restaurants to your cart, and checkout at the right price across delivery services.
 
 ![EatsMatch](https://user-images.githubusercontent.com/116177485/226500830-bc4e8549-ffc2-47e3-b59a-a55934cfe8ee.png)
 
