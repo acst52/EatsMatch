@@ -12,6 +12,15 @@ const addToCartHandler = async function (event) {
     console.log(dishName, dishPrice, dishId);
 
 // *** NO LONGER NEED THE await fetch BLOCK BELOW B/C WERE HANDLING CART W SESS STORAGE ***
+// await fetch('/api/cart/add/1', {
+//     method: 'POST',
+//     body: JSON.stringify({
+//         dishId, dishName, dishPrice, restoId
+//     }),
+//     headers: {
+//         'Content-Type': 'application/json',
+//     }
+// });
 
     // get cart from sess storage
     let cart = GETcartFromSess();
@@ -21,7 +30,7 @@ const addToCartHandler = async function (event) {
 
     if (existingCartItems >= 0) {
         // like if the dish is already in the cart once, increment quant
-        cart[existingCartItems]/quantity + 1;
+        cart[existingCartItems].quantity + 1;
     } else {
         // if dish not already in cart, push it to the cart
         cart.push({
@@ -57,4 +66,4 @@ document.querySelector('.add-button').addEventListener('click', addToCartHandler
 
 // addToCartHandler not accessible to resto.handlebars. export/import not working, so consulted ChatGPT. 
     // Their fix: make it avail globally with the following line:
-window.addToCartHandler = addToCartHandler;
+// window.addToCartHandler = addToCartHandler;
