@@ -5,6 +5,7 @@ const Dish = require('./Dish');
 const Order = require('./Order');
 const Resto = require('./Resto');
 const User = require('./User');
+const OrderItem = require('./OrderItem');
 
 // User has many orders, an order belongs to one user
 User.hasMany(Order, { foreignKey: 'userId', onDelete: 'CASCADE' });
@@ -14,9 +15,9 @@ Order.belongsTo(User, { foreignKey: 'userId' });
 Resto.hasMany(Dish, { foreignKey: 'restoID' }); // restoID is NULL in dishes table *****
 Dish.belongsTo(Resto, { foreignKey: 'restoID' });
 
-// A Cart has many Dishes & vice versa, through cart_items
-Cart.belongsToMany(Dish, { through: 'cart_items' });
-Dish.belongsToMany(Cart, { through: 'cart_items' });
+// Dish can be in multiple carts, but cart belongs to one dish...???
+Dish.hasMany(Cart, { foreignKey: 'dish_id', onDelete: 'CASCADE' });
+Cart.belongsTo(Dish, { foreignKey: 'dish_id' });
 
 // A User can have many Carts, but a cart belongs to 1 user
 User.hasMany(Cart, { foreignKey: 'userId' });
@@ -35,7 +36,7 @@ Order.hasMany(Cart, { foreignKey: 'orderId' });
 Cart.belongsTo(Order, { foreignKey: 'orderId' });
 
 // An Order has many dishes & vice versa, through order_items
-Order.belongsToMany(Dish, { through: 'order_items' });
-Dish.belongsToMany(Order, { through: 'order_items' });
+Order.belongsToMany(Dish, { through: OrderItem });
+Dish.belongsToMany(Order, { through: OrderItem });
 
-module.exports = { Cart, DeliveryService, Dish, Order, Resto, User };
+module.exports = { Cart, DeliveryService, Dish, Order, Resto, User, OrderItem };

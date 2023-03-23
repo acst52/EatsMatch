@@ -18,6 +18,6 @@ Order.init({
     allowNull: false
   }
 },
-  { sequelize });
+  { sequelize, tablename: 'Orders' });
 
 module.exports = Order;
