@@ -1,5 +1,4 @@
 const { Model, DataTypes } = require('sequelize');
-const Dish = require('./Dish');
 const sequelize = require('../config/connection');
 
 class Cart extends Model { };
@@ -13,14 +12,21 @@ Cart.init({
     user_id: {
         type: DataTypes.INTEGER,
         references: {
-            model: "Users",
+            model: "user",
             key: "id"
         }
     },
     dish_id: {
         type: DataTypes.INTEGER,
         references: {
-            model: Dish,
+            model: "dish",
+            key: "id"
+        }
+    },
+    order_id: {
+        type: DataTypes.INTEGER,
+        references: {
+            model: "order",
             key: "id"
         }
     }

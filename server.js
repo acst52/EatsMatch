@@ -1,4 +1,4 @@
-// Set up Express.js server w session support and db synch using Sequelize ORM; middleware to handle JSON, URL-encoded date & static file serving
+// Set up Express.js server w session support and db sync using Sequelize ORM; middleware to handle JSON, URL-encoded date & static file serving
 
 // import necessary modules
 require('dotenv').config();
@@ -66,10 +66,8 @@ const stripe = require('stripe')(process.env.STRIPE_PRIVATE_KEY);
 app.use(routes);
 
 const router = require('express').Router();
-const { Dish, Cart } = require('./models');
+// const { Dish, Cart } = require('./models');
 // const withAuth = require('../utils/auth');
-
-// 5. POST /cart/:id --> this route should handle form subission from menu pg & add selected itrm to user's cart. in this route, use session or cookies to store the user's cart data and redirect user to their cart pg. make sure user auth to be able to add to cart. if user not, redir to login/signup pg
 
 app.post('/api/cart/add/:id', async (req, res) => {
 try {
@@ -102,11 +100,28 @@ try {
   }
 });
 
-// also have to change resto.handlebars so the header / resto name, so that backend can grab resto id from front end and post it
-// set resto id to value so when you add to cart it grabs the resto id
 
-// start server & sync db connection
-app.listen(PORT, () => {
-  console.log('Server now listening');
-  sequelize.sync({ force: false })
-});
+// start server & sync db connection. Also sync Models in order
+const { User, Resto, DeliveryService, Dish, Order, Cart, OrderItem } = require('./models');
+
+(async () => {
+  try {
+    await sequelize.sync({ force: false });
+
+    // Sync tables one by one in the correct order
+    await User.sync();
+    await Resto.sync();
+    await DeliveryService.sync();
+    await Dish.sync();
+    await Order.sync();
+    await Cart.sync();
+    await OrderItem.sync();
+
+    console.log('All models were synchronized successfully.');
+
+    // Start server after syncing tables
+    app.listen(PORT, () => console.log(`App is running on port ${PORT}`));
+  } catch (error) {
+    console.error('Unable to sync the models:', error);
+  }
+})();

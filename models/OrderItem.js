@@ -15,7 +15,7 @@ OrderItem.init(
       type: DataTypes.INTEGER,
       allowNull: false,
       references: {
-        model: 'Orders',
+        model: 'order',
         key: 'id',
       },
     },
@@ -23,7 +23,7 @@ OrderItem.init(
       type: DataTypes.INTEGER,
       allowNull: false,
       references: {
-        model: 'Dishes',
+        model: 'dish',
         key: 'id',
       },
     },

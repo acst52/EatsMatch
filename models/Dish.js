@@ -30,6 +30,6 @@ Dish.init({
   //   allowNull: false
   // }
 },
-  { sequelize, tablename: 'Dishes' });
+  { sequelize, tableName: 'dish' });
 
 module.exports = Dish;
