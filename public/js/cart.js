@@ -54,3 +54,7 @@ window.addEventListener('click', (event) => {
 });
 
 document.querySelector('.add-button').addEventListener('click', addToCartHandler);
+
+// addToCartHandler not accessible to resto.handlebars. export/import not working, so consulted ChatGPT. 
+    // Their fix: make it avail globally with the following line:
+window.addToCartHandler = addToCartHandler;
