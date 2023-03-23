@@ -51,6 +51,8 @@
                             let addCartBtn = document.createElement("button");
                             addCartBtn.classList.add('addToCart');
                             addCartBtn.innerText = 'Add to Cart';
+                            // add resto id attrib
+                            addCartBtn.setAttribute('data-resto-id', dishBtn.getAttribute('data-resto-id'));
                             addCartBtn.addEventListener('click', addToCartHandler);
                             section.append(addCartBtn);
 
@@ -67,3 +69,5 @@
     </section>
 
 </section>
+
+{{!-- TODO: pass resto_id to front-end when you add dish to cart... sounds like a button thing --}}

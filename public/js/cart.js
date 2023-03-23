@@ -6,7 +6,8 @@ const addToCartHandler = async function (event) {
     console.log('this has been clicked');
     const dishPrice = this.previousSibling.value;
     const dishName = this.parentElement.firstElementChild.value;
-    const dishId = this.getAttribute('data-dish-id'); // gets dish ID from data-dish-id attribute ???
+    const dishId = this.getAttribute('data-dish-id'); // gets dish ID from data-dish-id attribute 
+    const restoId = this.getAttribute('data-resto-id');
 
     console.log(dishName, dishPrice, dishId);
 
@@ -27,6 +28,7 @@ const addToCartHandler = async function (event) {
             dish_id: dishId,
             dish_name: dishName,
             dish_price: dishPrice,
+            resto_id: restoId,
             quantity: 1
         });
     }
