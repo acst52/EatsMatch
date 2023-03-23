@@ -1,4 +1,4 @@
-const addToCartHandler = async function (event) { // idk what event is for here
+const addToCartHandler = async function (event) {
 
     console.log('this has been clicked');
     const dishPrice = this.previousSibling.value;
@@ -6,18 +6,19 @@ const addToCartHandler = async function (event) { // idk what event is for here
 
     console.log(dishName, dishPrice);
 
-    await fetch('/api/cart/add', {
+    await fetch('/api/cart/add/1', {
         method: 'POST',
-        body: JSON.stringify({
-            dishName, dishPrice
-        }),
+        // body: JSON.stringify({
+        //     dishName, dishPrice
+        // }),
         headers: {
             'Content-Type': 'application/json',
         }
     });
 
     successMsg.textContent = `Added to cart!`;
-    successModal.style.display = 'block'
+    successModal.style.display = 'block';
+
     // add here: add to cart w/ session
 }
 
@@ -34,5 +35,4 @@ window.addEventListener('click', (event) => {
     }
 });
 
-// document.querySelector('.add-button').addEventListener('click', addToCartHandler);
 document.querySelector('.add-button').addEventListener('click', addToCartHandler);
