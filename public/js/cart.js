@@ -1,25 +1,41 @@
+const GETcartFromSess = require('../../utils/GETcart'); // use this helper to access cart data on other pgs
+const SETcartFromSess = require('../../utils/SETcart');
+
 const addToCartHandler = async function (event) {
 
     console.log('this has been clicked');
     const dishPrice = this.previousSibling.value;
     const dishName = this.parentElement.firstElementChild.value;
+    const dishId = this.getAttribute('data-dish-id'); // gets dish ID from data-dish-id attribute ???
 
-    console.log(dishName, dishPrice);
+    console.log(dishName, dishPrice, dishId);
 
-    await fetch('/api/cart/add/1', {
-        method: 'POST',
-        // body: JSON.stringify({
-        //     dishName, dishPrice
-        // }),
-        headers: {
-            'Content-Type': 'application/json',
-        }
-    });
+// *** NO LONGER NEED THE await fetch BLOCK BELOW B/C WERE HANDLING CART W SESS STORAGE ***
+
+    // get cart from sess storage
+    let cart = GETcartFromSess();
+
+    // is dish already in cart?
+    const existingCartItems = cart.findIndex(item => item.dish_id === dishId);
+
+    if (existingCartItems >= 0) {
+        // like if the dish is already in the cart once, increment quant
+        cart[existingCartItems]/quantity + 1;
+    } else {
+        // if dish not already in cart, push it to the cart
+        cart.push({
+            dish_id: dishId,
+            dish_name: dishName,
+            dish_price: dishPrice,
+            quantity: 1
+        });
+    }
+
+    // now let's save the updated cart to sess storage using our helper fcn imported from utils:
+    SETcartFromSess(cart);
 
     successMsg.textContent = `Added to cart!`;
     successModal.style.display = 'block';
-
-    // add here: add to cart w/ session
 }
 
 const successModal = document.getElementById('success-modal');

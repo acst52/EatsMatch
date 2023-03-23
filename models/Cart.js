@@ -8,6 +8,20 @@ Cart.init({
         type: DataTypes.INTEGER,
         allowNull: false,
         defaultValue: 1
+    },
+    user_id: {
+        type: DataTypes.INTEGER,
+        references: {
+            model: "User",
+            key: "id"
+        }
+    },
+    dish_id: {
+        type: DataTypes.INTEGER,
+        references: {
+            model: "Dish",
+            key: "id"
+        }
     }
 },
     { sequelize });

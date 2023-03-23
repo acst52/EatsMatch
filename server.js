@@ -77,16 +77,21 @@ try {
   const dish = await Dish.findByPk(dish_id);
   // use cart model to find , where dish id = id, if that var exists, then use cart.update instead of cart.create, update value (new var quantity), increment and use in update.
   // else, create instead of update
-  const cart = await Cart.findOne(dish);
+  const cart = await Cart.findOne({
+    where: {
+      user_id: req.session.user_id,
+      dish_id: dish_id
+    }
+  });
       if (cart) {
-          const addToCart = await Cart.update({
-            quantity: 1
-          });
+          const addToCart = await Cart.update(
+            { quantity: cart.quantity + 1 },
+            { where: { id: cart.id } }
+          );
         return res.status(200).json({ addToCart });
       } else {
         const newCart = await Cart.create({
-          dish_name: dish.dish_name,
-          dish_price: dish.dish_price,
+          dish_id: dish.id,
           user_id: req.session.user_id,
           quantity: 1
       });
@@ -99,13 +104,9 @@ try {
 
 // also have to change resto.handlebars so the header / resto name, so that backend can grab resto id from front end and post it
 // set resto id to value so when you add to cart it grabs the resto id
-// then all that needs to be done i supdate this router, and 
-  // card has id, fetch grabs that id and send to backend. abckend checks if theres an existing cart with that id, if not creates new one.
 
 // start server & sync db connection
 app.listen(PORT, () => {
   console.log('Server now listening');
   sequelize.sync({ force: false })
 });
-
-// dish.findAll ... where, deliveryService is doordash, uber eats, map through that to create array. done by accessing whats in the db. set up to access everything in the db for when more items are added or changed
