@@ -30,7 +30,7 @@ router.post('/cart/add', withAuth, async (req, res) => {
 	try {
 		// Check if the dish is already in the cart
 		let cartItem = await Cart.findOne({
-			where: { user_id: req.session.user_id, dish_id: req.body.dishId },
+			where: { user_id: req.session.user_id, dish_id: req.body.dish_id },
 		});
 
 		if (cartItem) {
@@ -41,13 +41,14 @@ router.post('/cart/add', withAuth, async (req, res) => {
 			// create a cart & add cartItem to it:
 			cartItem = await Cart.create({
 				user_id: req.session.user_id,
-				dish_id: req.body.dishId,
+				dish_id: req.body.dish_id,
 				quantity: 1,
 			});
 		}
 
 		res.status(200).send('Added to cart');
 	} catch (error) {
+		console.error(error);
 		res.status(500).send('Cannot add to cart. Try again later!');
 	}
 });
