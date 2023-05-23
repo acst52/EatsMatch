@@ -24,9 +24,9 @@ const withAuth = require('../../utils/auth');
 // 	}
 // });
 
-// NEW ROUTE USING DISH_ID, NOT DISHNAME
+// NEW ROUTE USING DISH_ID, NOT DISHNAME. also removed /api from url
 
-router.post('/api/cart/add', withAuth, async (req, res) => {
+router.post('/cart/add', withAuth, async (req, res) => {
 	try {
 		// Check if the dish is already in the cart
 		let cartItem = await Cart.findOne({
