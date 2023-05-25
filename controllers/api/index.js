@@ -8,7 +8,7 @@ const checkoutRoutes = require('./checkoutRoutes');
 
 router.use('/users', backEndUserRoutes);
 router.use('/api', backEndSearchRoutes);
-router.use('/api', backEndCartRoutes);
+router.use('/cart', backEndCartRoutes);
 router.use('/checkout', checkoutRoutes);
 
 module.exports = router;

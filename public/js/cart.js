@@ -1,14 +1,15 @@
-const addToCartHandler = async function () {
-	console.log('this has been clicked');
-	const dishPrice = this.previousSibling.value;
-	const dishName = this.parentElement.firstElementChild.value;
 
+const addToCartHandler = async function (event) {
+  event.preventDefault();
+	console.log('this has been clicked');
+	const dishPrice = this.previousSibling.value; // MIGHT NEED TO CHANGE 'THIS'
+	const dishName = this.parentElement.firstElementChild.value; // MIGHT NEED TO CHANGE 'THIS'
 	console.log(dishName, dishPrice);
 
 	await fetch('/api/cart/add', {
 		method: 'POST',
 		body: JSON.stringify({
-			dishID: this.id,
+			dish_id: dishName.dataset.id,
 			dishPrice,
 		}),
 		headers: {
@@ -37,4 +38,3 @@ window.addEventListener('click', (event) => {
 document
 	.querySelector('.add-button')
 	.addEventListener('click', addToCartHandler);
-// document.querySelector('.add-button').addEventListener('click', addToCartHandler);
