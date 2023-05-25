@@ -23,7 +23,7 @@ router.get('/resto/:id', async (req, res) => {
     }
 });
 
-// GET /disk/:id --> render restaurant page when user clicks on a dish they searched for
+// GET /dish/:id --> render restaurant page when user clicks on a dish they searched for
 
 router.get('/dish/:id', async (req, res) => {
     try {
