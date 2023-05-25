@@ -2,7 +2,7 @@ const router = require('express').Router();
 const { Dish, Cart } = require('../../models');
 const withAuth = require('../../utils/auth');
 
-// 5. POST /cart/:id --> this route should handle form subission from menu pg & add selected itrm to user's cart. in this route, use session or cookies to store the user's cart data and redirect user to their cart pg. make sure user auth to be able to add to cart. if user not, redir to login/signup pg
+// 5. POST /cart/:id --> this route should handle form submission from menu pg & add selected item to user's cart. in this route, use session or cookies to store the user's cart data and redirect user to their cart pg. make sure user auth to be able to add to cart. if user not, redir to login/signup pg
 
 // // OLD ROUTE:
 
