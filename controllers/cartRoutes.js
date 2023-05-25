@@ -26,25 +26,29 @@ router.post('/cart/add', withAuth, async (req, res) => {
 // 6. GET /cart --> this route should handle the user's cart pg which displays the items in their cart and allows them to edit or remove items. retrieve cart data from session or cookies and render the cart template using handlebars. template should display food item name, resto name, quantity, total price for ea item. incl button for checkout. ..... automatically select lowest price delivery service
 
 router.get('/cart', withAuth, async (req, res) => {
-    try {
-        // round up all the cart items
-        const cartTotal = await Cart.findAll({
-            where: { user_id: req.session.user_id },
-            include: [Dish]
-        });
-        // calc total price by using reduce() method to sum quantity*price of ea cart item
-        const totalPrice = cartTotal.reduce((acc, item) => {
-            return acc + item.quantity * item.Dish.dish_price;
-        }, 0);
-        // render the cart page template
-        res.render('cart', { loggedIn: res.session.logged_in}, {
-            title: 'Cart',
-            cartTotal,
-            totalPrice
-        });
-    } catch (error) {
-        res.status(500).send('Cannot load your cart. Server error.');
-    }
+	try {
+		// round up all the cart items
+		const cartTotal = await Cart.findAll({
+			where: { user_id: req.session.user_id },
+			include: [Dish],
+		});
+		// calc total price by using reduce() method to sum quantity*price of ea cart item
+		const totalPrice = cartTotal.reduce((acc, item) => {
+			return acc + item.quantity * item.Dish.dish_price;
+		}, 0);
+		// render the cart page template
+		res.render(
+			'cart',
+			{ loggedIn: res.session.logged_in },
+			{
+				title: 'Cart',
+				cartTotal,
+				totalPrice,
+			}
+		);
+	} catch (error) {
+		res.status(500).send('Cannot load your cart. Server error.');
+	}
 });
 
 module.exports = router;

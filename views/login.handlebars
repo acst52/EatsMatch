@@ -1,28 +1,28 @@
-<section class="login-container">
-  <h2 id="login-msg">WELCOME BACK</h2>
-  <h2 id="login-header">Login</h2>
-  <br>
-  <section class="login-circle">
-    <form class="form login-form">
-      <section class="form-group">
-        {{!-- require front-end js to passing input to DB --}}
-        <label for="email-login">EMAIL:</label>
-        <input class="form-input" type="text" id="email-login" />
-      </section>
-      <section class="form-group">
-        {{!-- require front-end js to passing input to DB --}}
-        <label for="password-login">PASSWORD:</label>
-        <input class="form-input" type="password" id="password-login" />
-      </section>
-      <section class="form-group">
-        <button class="btn login-btn" type="submit">LOGIN</button>
-        {{!-- sign up route when clicked --}}
-        <p id="signup-msg">DON'T HAVE AN ACCOUNT WITH US ?</p>
-        <br>
-        <a href="/signup" id="signup-btn">SIGN UP</a>
-      </section>
-    </form>
+<section class='login-container'>
+	<h2 id='login-msg'>WELCOME BACK</h2>
+	<h2 id='login-header'>Login</h2>
+	<br />
+	<section class='login-circle'>
+		<form class='form login-form'>
+			<section class='form-group'>
+				{{! require front-end js to passing input to DB }}
+				<label for='email-login'>EMAIL:</label>
+				<input class='form-input' type='text' id='email-login' />
+			</section>
+			<section class='form-group'>
+				{{! require front-end js to passing input to DB }}
+				<label for='password-login'>PASSWORD:</label>
+				<input class='form-input' type='password' id='password-login' />
+			</section>
+			<section class='form-group'>
+				<button class='btn login-btn' type='submit'>LOGIN</button>
+				{{! sign up route when clicked }}
+				<p id='signup-msg'>DON'T HAVE AN ACCOUNT WITH US ?</p>
+				<br />
+				<a href='/signup' id='signup-btn'>SIGN UP</a>
+			</section>
+		</form>
 
-    <script src="/js/login.js"></script>
-  </section>
+		<script src='/js/login.js'></script>
+	</section>
 </section>

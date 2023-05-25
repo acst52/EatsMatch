@@ -1,5 +1,6 @@
 // import models
 const Cart = require('./Cart');
+const CartItem = require('./CartItem');
 const DeliveryService = require('./DeliveryService');
 const Dish = require('./Dish');
 const Order = require('./Order');
@@ -15,8 +16,14 @@ Resto.hasMany(Dish, { foreignKey: 'restoID' }); // restoID is NULL in dishes tab
 Dish.belongsTo(Resto, { foreignKey: 'restoID' });
 
 // A Cart has many Dishes & vice versa, through cart_items
-Cart.belongsToMany(Dish, { through: 'cart_items' });
-Dish.belongsToMany(Cart, { through: 'cart_items' });
+Cart.belongsToMany(Dish, { through: CartItem });
+Dish.belongsToMany(Cart, { through: CartItem });
+
+// new model CartItem assoc:
+Cart.hasMany(CartItem, { foreignKey: 'cart_id' });
+Dish.hasMany(CartItem, { foreignKey: 'dish_id' });
+CartItem.belongsTo(Cart, { foreignKey: 'cart_id' });
+CartItem.belongsTo(Dish, { foreignKey: 'dish_id' });
 
 // A User can have many Carts, but a cart belongs to 1 user
 User.hasMany(Cart, { foreignKey: 'userId' });
@@ -38,4 +45,4 @@ Cart.belongsTo(Order, { foreignKey: 'orderId' });
 Order.belongsToMany(Dish, { through: 'order_items' });
 Dish.belongsToMany(Order, { through: 'order_items' });
 
-module.exports = { Cart, DeliveryService, Dish, Order, Resto, User };
+module.exports = { Cart, CartItem, DeliveryService, Dish, Order, Resto, User };

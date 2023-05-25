@@ -23,18 +23,18 @@ const hbs = exphbs.create({ helpers });
 
 // define sess config obj w options
 const sess = {
-  secret: 'your_secret_key',
-  cookie: {
-    maxAge: 5000000,
-    httpOnly: true,
-    secure: false,
-    sameSite: "strict"
-  },
-  resave: false,
-  saveUninitialized: true,
-  store: new SequelizeStore({
-    db: sequelize
-  })
+	secret: 'your_secret_key',
+	cookie: {
+		maxAge: 5000000,
+		httpOnly: true,
+		secure: false,
+		sameSite: 'strict',
+	},
+	resave: false,
+	saveUninitialized: true,
+	store: new SequelizeStore({
+		db: sequelize,
+	}),
 };
 
 // add session middleware to the server
@@ -50,7 +50,7 @@ app.use(express.urlencoded({ extended: true }));
 // specify that all client-side code is living in public dir:
 app.use(express.static(path.join(__dirname, 'public')));
 
-// Now let's set up Stripe; 
+// Now let's set up Stripe;
 // the following is a function so we want to pass in our Stripe Key:
 const stripe = require('stripe')(process.env.STRIPE_PRIVATE_KEY);
 // set up store items; new map that contains all store items as obj w key value pairs. ITEMS AS BELOW IN JSON FILE STORED IN SERVER. must store securely in server b/c you dont want user to send the price, they could hack and make it 0
@@ -104,8 +104,8 @@ try {
 
 // start server & sync db connection
 app.listen(PORT, () => {
-  console.log('Server now listening');
-  sequelize.sync({ force: false })
+	console.log('Server now listening');
+	sequelize.sync({ force: false });
 });
 
 // dish.findAll ... where, deliveryService is doordash, uber eats, map through that to create array. done by accessing whats in the db. set up to access everything in the db for when more items are added or changed

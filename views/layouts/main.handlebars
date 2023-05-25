@@ -1,56 +1,52 @@
-<!DOCTYPE html>
-<html lang="en">
+<html lang='en'>
 
-<head>
+	<head>
 
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EatsMatch</title>
-    {{!-- DON'T FORGET TO RE-INCLUDE JASS STYLESHEET IF NEEDED --}}
-    <link rel="stylesheet" type="text/css" href="/css/style.css">
+		<meta charset='utf-8' />
+		<meta name='viewport' content='width=device-width, initial-scale=1.0' />
+		<title>EatsMatch</title>
+		{{! DON'T FORGET TO RE-INCLUDE JASS STYLESHEET IF NEEDED }}
+		<link rel='stylesheet' type='text/css' href='/css/style.css' />
 
-</head>
+	</head>
 
-<body>
+	<body>
 
+		<header>
 
-    <header>
+			<section class='title'>
+				<img id='logo-img' src='/images/eatsmatch-logo.png' />
+				Eats<span id='match'>Match</span>
+			</section>
 
-        <section class="title">
-            <img id="logo-img" src="/images/eatsmatch-logo.png">
-            Eats<span id="match">Match</span>
-        </section>
+			<nav>
 
-        <nav>
+				<a href='/' class=''>HOME</a>
 
-            <a href="/" class="">HOME</a>
+				{{#if logged_in}}
+					<button id='logout-btn' class=''>LOGOUT</button>
+				{{else}}
+					<a href='/login'>LOGIN</a>
+				{{/if}}
+				<a href='/cart'>CART</a>
 
-            {{#if logged_in}}
-            <button id="logout-btn" class="">LOGOUT</button>
-            {{else}}
-            <a href="/login">LOGIN</a>
-            {{/if}}
-            <a href="/cart">CART</a>
+			</nav>
 
-        </nav>
+		</header>
 
-    </header>
+		<main>
 
+			{{{body}}}
 
+		</main>
 
-    <main>
+		{{#if logged_in}}
+			<script src='/js/logout.js'></script>
+		{{/if}}
 
-        {{{body}}}
+	</body>
 
-    </main>
-
-    {{#if logged_in}}
-    <script src="/js/logout.js"></script>
-    {{/if}}
-
-</body>
-
-    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
-    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+	<script src='https://code.jquery.com/jquery-3.6.0.js'></script>
+	<script src='https://code.jquery.com/ui/1.13.2/jquery-ui.js'></script>
 
 </html>

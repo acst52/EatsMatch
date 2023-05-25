@@ -1,40 +1,42 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class Resto extends Model { };
+class Resto extends Model {}
 
-Resto.init({
-  id: {
-    type: DataTypes.INTEGER,
-    primaryKey: true,
-    autoIncrement: true
-  },
-  resto_name: {
-    type: DataTypes.STRING,
-    allowNull: false
-  },
-  resto_img: {
-    type: DataTypes.STRING,
-    allowNull: false
-  },
-  resto_promo_uber: {
-    type: DataTypes.DECIMAL,
-    allowNull: true
-  },
-  resto_promo_dd: {
-    type: DataTypes.DECIMAL,
-    allowNull: true
-  },
-  delivery_service: {
-    type: DataTypes.INTEGER, // looking for single integer as deliv service value
-    allowNull: true,
-    references: {
-      model: 'deliveryService',
-      key: 'id'
-    }
-  }
-},
-  { sequelize });
+Resto.init(
+	{
+		id: {
+			type: DataTypes.INTEGER,
+			primaryKey: true,
+			autoIncrement: true,
+		},
+		resto_name: {
+			type: DataTypes.STRING,
+			allowNull: false,
+		},
+		resto_img: {
+			type: DataTypes.STRING,
+			allowNull: false,
+		},
+		resto_promo_uber: {
+			type: DataTypes.DECIMAL,
+			allowNull: true,
+		},
+		resto_promo_dd: {
+			type: DataTypes.DECIMAL,
+			allowNull: true,
+		},
+		delivery_service: {
+			type: DataTypes.INTEGER, // looking for single integer as deliv service value
+			allowNull: true,
+			references: {
+				model: 'deliveryServices',
+				key: 'id',
+			},
+		},
+	},
+	{ sequelize }
+);
 
 module.exports = Resto;
 
