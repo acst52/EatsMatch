@@ -42,4 +42,4 @@ CartItem.init(
 
 module.exports = CartItem;
 
-// to import this in any file it's used in: 
+// to import this in any file it's used in:

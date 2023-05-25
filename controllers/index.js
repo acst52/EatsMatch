@@ -2,7 +2,7 @@ const router = require('express').Router();
 
 // Import route files
 const homeRoutes = require('./homeRoutes');
-const apiRoutes = require('./api')
+const apiRoutes = require('./api');
 const searchRoutes = require('./searchRoutes');
 const restoRoutes = require('./restoRoutes');
 const cartRoutes = require('./cartRoutes');

@@ -30,7 +30,7 @@ router.post('/cart/add', withAuth, async (req, res) => {
 	try {
 		// Check if the dish is already in the cart
 		let cartItem = await Cart.findOne({
-			where: { user_id: req.session.user_id, dish_id: req.body.dish_id },
+			where: { id: req.body.dish_id },
 		});
 
 		if (cartItem) {

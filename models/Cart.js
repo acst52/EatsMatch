@@ -19,7 +19,7 @@ Cart.init(
 			type: DataTypes.INTEGER,
 			allowNull: false,
 			references: {
-				model: 'dish',
+				model: 'dishes',
 				key: 'id',
 			},
 		},

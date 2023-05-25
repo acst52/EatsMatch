@@ -9,7 +9,7 @@ const addToCartHandler = async function (event) {
 	await fetch('/api/cart/add', {
 		method: 'POST',
 		body: JSON.stringify({
-			dish_id: this.id,
+			dish_id: dishName.dataset.id,
 			dishPrice,
 		}),
 		headers: {
