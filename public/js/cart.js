@@ -1,6 +1,5 @@
-
 const addToCartHandler = async function (event) {
-  event.preventDefault();
+	event.preventDefault();
 	console.log('this has been clicked');
 	const dishPrice = this.previousSibling.value; // MIGHT NEED TO CHANGE 'THIS'
 	const dishName = this.parentElement.firstElementChild.value; // MIGHT NEED TO CHANGE 'THIS'
